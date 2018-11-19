@@ -8,6 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		8303C62421A3173200B38FE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62321A3173200B38FE2 /* main.m */; };
+		8303C62C21A3175E00B38FE2 /* Rubicon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8303C62B21A3175E00B38FE2 /* Rubicon.framework */; };
+		8303C64A21A317F500B38FE2 /* PBXFrameworksBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */; };
+		8303C64B21A317F500B38FE2 /* PBXResourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */; };
+		8303C64C21A317F500B38FE2 /* PBXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63121A317F300B38FE2 /* PBXFileReference.m */; };
+		8303C64D21A317F500B38FE2 /* XCBuildConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */; };
+		8303C64E21A317F500B38FE2 /* PBXSourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */; };
+		8303C64F21A317F500B38FE2 /* PBXCopyFilesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */; };
+		8303C65021A317F500B38FE2 /* PBXTargetDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63721A317F300B38FE2 /* PBXTargetDependency.m */; };
+		8303C65121A317F500B38FE2 /* PBXHeadersBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */; };
+		8303C65221A317F500B38FE2 /* PBXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63E21A317F400B38FE2 /* PBXGroup.m */; };
+		8303C65321A317F500B38FE2 /* PBXContainerItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */; };
+		8303C65421A317F500B38FE2 /* PBXBuildFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64121A317F400B38FE2 /* PBXBuildFile.m */; };
+		8303C65521A317F500B38FE2 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64221A317F400B38FE2 /* XCConfigurationList.m */; };
+		8303C65621A317F500B38FE2 /* PBXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64421A317F400B38FE2 /* PBXProject.m */; };
+		8303C65721A317F500B38FE2 /* PBXNativeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64621A317F400B38FE2 /* PBXNativeTarget.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +40,35 @@
 /* Begin PBXFileReference section */
 		8303C62021A3173200B38FE2 /* PGPBXToCMake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PGPBXToCMake; sourceTree = BUILT_PRODUCTS_DIR; };
 		8303C62321A3173200B38FE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8303C62B21A3175E00B38FE2 /* Rubicon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rubicon.framework; path = ../../../Library/Frameworks/Rubicon.framework; sourceTree = "<group>"; };
+		8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFrameworksBuildPhase.m; sourceTree = "<group>"; };
+		8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXResourcesBuildPhase.m; sourceTree = "<group>"; };
+		8303C63021A317F300B38FE2 /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
+		8303C63121A317F300B38FE2 /* PBXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileReference.m; sourceTree = "<group>"; };
+		8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildConfiguration.m; sourceTree = "<group>"; };
+		8303C63321A317F300B38FE2 /* XCConfigurationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCConfigurationList.h; sourceTree = "<group>"; };
+		8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourcesBuildPhase.m; sourceTree = "<group>"; };
+		8303C63521A317F300B38FE2 /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
+		8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCopyFilesBuildPhase.m; sourceTree = "<group>"; };
+		8303C63721A317F300B38FE2 /* PBXTargetDependency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXTargetDependency.m; sourceTree = "<group>"; };
+		8303C63821A317F300B38FE2 /* PBXBuildFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildFile.h; sourceTree = "<group>"; };
+		8303C63921A317F300B38FE2 /* PBXFrameworksBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFrameworksBuildPhase.h; sourceTree = "<group>"; };
+		8303C63A21A317F300B38FE2 /* PBXResourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXResourcesBuildPhase.h; sourceTree = "<group>"; };
+		8303C63B21A317F400B38FE2 /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
+		8303C63C21A317F400B38FE2 /* XCBuildConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildConfiguration.h; sourceTree = "<group>"; };
+		8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXHeadersBuildPhase.m; sourceTree = "<group>"; };
+		8303C63E21A317F400B38FE2 /* PBXGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXGroup.m; sourceTree = "<group>"; };
+		8303C63F21A317F400B38FE2 /* PBXHeadersBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeadersBuildPhase.h; sourceTree = "<group>"; };
+		8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXContainerItemProxy.m; sourceTree = "<group>"; };
+		8303C64121A317F400B38FE2 /* PBXBuildFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildFile.m; sourceTree = "<group>"; };
+		8303C64221A317F400B38FE2 /* XCConfigurationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCConfigurationList.m; sourceTree = "<group>"; };
+		8303C64321A317F400B38FE2 /* PBXNativeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXNativeTarget.h; sourceTree = "<group>"; };
+		8303C64421A317F400B38FE2 /* PBXProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProject.m; sourceTree = "<group>"; };
+		8303C64521A317F400B38FE2 /* PBXContainerItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemProxy.h; sourceTree = "<group>"; };
+		8303C64621A317F400B38FE2 /* PBXNativeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTarget.m; sourceTree = "<group>"; };
+		8303C64721A317F400B38FE2 /* PBXSourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourcesBuildPhase.h; sourceTree = "<group>"; };
+		8303C64821A317F400B38FE2 /* PBXCopyFilesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCopyFilesBuildPhase.h; sourceTree = "<group>"; };
+		8303C64921A317F500B38FE2 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8303C62C21A3175E00B38FE2 /* Rubicon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +88,7 @@
 			children = (
 				8303C62221A3173200B38FE2 /* PGPBXToCMake */,
 				8303C62121A3173200B38FE2 /* Products */,
+				8303C62A21A3175E00B38FE2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +103,53 @@
 		8303C62221A3173200B38FE2 /* PGPBXToCMake */ = {
 			isa = PBXGroup;
 			children = (
+				8303C62D21A317B500B38FE2 /* PBX */,
 				8303C62321A3173200B38FE2 /* main.m */,
 			);
 			path = PGPBXToCMake;
+			sourceTree = "<group>";
+		};
+		8303C62A21A3175E00B38FE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8303C62B21A3175E00B38FE2 /* Rubicon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8303C62D21A317B500B38FE2 /* PBX */ = {
+			isa = PBXGroup;
+			children = (
+				8303C63821A317F300B38FE2 /* PBXBuildFile.h */,
+				8303C64121A317F400B38FE2 /* PBXBuildFile.m */,
+				8303C64521A317F400B38FE2 /* PBXContainerItemProxy.h */,
+				8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */,
+				8303C64821A317F400B38FE2 /* PBXCopyFilesBuildPhase.h */,
+				8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */,
+				8303C63521A317F300B38FE2 /* PBXFileReference.h */,
+				8303C63121A317F300B38FE2 /* PBXFileReference.m */,
+				8303C63921A317F300B38FE2 /* PBXFrameworksBuildPhase.h */,
+				8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */,
+				8303C63B21A317F400B38FE2 /* PBXGroup.h */,
+				8303C63E21A317F400B38FE2 /* PBXGroup.m */,
+				8303C63F21A317F400B38FE2 /* PBXHeadersBuildPhase.h */,
+				8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */,
+				8303C64321A317F400B38FE2 /* PBXNativeTarget.h */,
+				8303C64621A317F400B38FE2 /* PBXNativeTarget.m */,
+				8303C63021A317F300B38FE2 /* PBXProject.h */,
+				8303C64421A317F400B38FE2 /* PBXProject.m */,
+				8303C63A21A317F300B38FE2 /* PBXResourcesBuildPhase.h */,
+				8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */,
+				8303C64721A317F400B38FE2 /* PBXSourcesBuildPhase.h */,
+				8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */,
+				8303C64921A317F500B38FE2 /* PBXTargetDependency.h */,
+				8303C63721A317F300B38FE2 /* PBXTargetDependency.m */,
+				8303C63C21A317F400B38FE2 /* XCBuildConfiguration.h */,
+				8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */,
+				8303C63321A317F300B38FE2 /* XCConfigurationList.h */,
+				8303C64221A317F400B38FE2 /* XCConfigurationList.m */,
+			);
+			path = PBX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +178,7 @@
 		8303C61821A3173200B38FE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Project Galen";
 				TargetAttributes = {
@@ -118,6 +209,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8303C65021A317F500B38FE2 /* PBXTargetDependency.m in Sources */,
+				8303C64F21A317F500B38FE2 /* PBXCopyFilesBuildPhase.m in Sources */,
+				8303C65221A317F500B38FE2 /* PBXGroup.m in Sources */,
+				8303C64E21A317F500B38FE2 /* PBXSourcesBuildPhase.m in Sources */,
+				8303C65621A317F500B38FE2 /* PBXProject.m in Sources */,
+				8303C64A21A317F500B38FE2 /* PBXFrameworksBuildPhase.m in Sources */,
+				8303C65721A317F500B38FE2 /* PBXNativeTarget.m in Sources */,
+				8303C64B21A317F500B38FE2 /* PBXResourcesBuildPhase.m in Sources */,
+				8303C65521A317F500B38FE2 /* XCConfigurationList.m in Sources */,
+				8303C64D21A317F500B38FE2 /* XCBuildConfiguration.m in Sources */,
+				8303C65421A317F500B38FE2 /* PBXBuildFile.m in Sources */,
+				8303C65321A317F500B38FE2 /* PBXContainerItemProxy.m in Sources */,
+				8303C65121A317F500B38FE2 /* PBXHeadersBuildPhase.m in Sources */,
+				8303C64C21A317F500B38FE2 /* PBXFileReference.m in Sources */,
 				8303C62421A3173200B38FE2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +346,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5XWZ7S7E9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,6 +359,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5XWZ7S7E9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
