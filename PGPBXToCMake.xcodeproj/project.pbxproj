@@ -7,23 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1117D06193AF46AA12359477 /* PBXNativeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D3FF9BE270C7B2CCEB30 /* PBXNativeTarget.m */; };
+		1117D09CFEB13314D8CE0BF9 /* PBXCopyFilesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D9706EABE0383337DBAD /* PBXCopyFilesBuildPhase.m */; };
+		1117D1F84B392BF54403366B /* PBX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D979FD9FB4CE9BF430A3 /* PBX.m */; };
+		1117D267BC21D7FDDC9A1541 /* PBXBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D2162475774B77126037 /* PBXBuildPhase.m */; };
+		1117D2BDB68BBAEFE921E43D /* PBXNativeTargetAttribs.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D9B0B33D1BF9AE80B692 /* PBXNativeTargetAttribs.m */; };
+		1117D43498EA23DFD6D0D543 /* PBXHeadersBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D1F67FCB6469033B0EEA /* PBXHeadersBuildPhase.m */; };
+		1117D4772D39586AF960DD58 /* PBXBuildRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DAA80573AEB6027BE7A7 /* PBXBuildRule.m */; };
+		1117D7DA8005D2F2C69AE009 /* PBXTargetDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D191274ADC12A2B876AF /* PBXTargetDependency.m */; };
+		1117DA2DA5A61D0432588EA9 /* PBXFrameworksBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DCA333312BD952786B2E /* PBXFrameworksBuildPhase.m */; };
+		1117DDF2F59B84E672EB9631 /* PBXSourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D35B9193584F398361EA /* PBXSourcesBuildPhase.m */; };
+		1117DF0B340626A2BE9C3235 /* PBXResourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117DF977869A19399F0B570 /* PBXResourcesBuildPhase.m */; };
+		1117DFF8C05CE433704C6388 /* PBXTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D2AFEA89BF78489D8737 /* PBXTarget.m */; };
 		8303C62421A3173200B38FE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62321A3173200B38FE2 /* main.m */; };
 		8303C62C21A3175E00B38FE2 /* Rubicon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8303C62B21A3175E00B38FE2 /* Rubicon.framework */; };
-		8303C64A21A317F500B38FE2 /* PBXFrameworksBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */; };
-		8303C64B21A317F500B38FE2 /* PBXResourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */; };
 		8303C64C21A317F500B38FE2 /* PBXFileReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63121A317F300B38FE2 /* PBXFileReference.m */; };
 		8303C64D21A317F500B38FE2 /* XCBuildConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */; };
-		8303C64E21A317F500B38FE2 /* PBXSourcesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */; };
-		8303C64F21A317F500B38FE2 /* PBXCopyFilesBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */; };
-		8303C65021A317F500B38FE2 /* PBXTargetDependency.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63721A317F300B38FE2 /* PBXTargetDependency.m */; };
-		8303C65121A317F500B38FE2 /* PBXHeadersBuildPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */; };
 		8303C65221A317F500B38FE2 /* PBXGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C63E21A317F400B38FE2 /* PBXGroup.m */; };
 		8303C65321A317F500B38FE2 /* PBXContainerItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */; };
 		8303C65421A317F500B38FE2 /* PBXBuildFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64121A317F400B38FE2 /* PBXBuildFile.m */; };
 		8303C65521A317F500B38FE2 /* XCConfigurationList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64221A317F400B38FE2 /* XCConfigurationList.m */; };
 		8303C65621A317F500B38FE2 /* PBXProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64421A317F400B38FE2 /* PBXProject.m */; };
-		8303C65721A317F500B38FE2 /* PBXNativeTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 8303C64621A317F400B38FE2 /* PBXNativeTarget.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		8364C2B421A5EB0D004EDC8D /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = text.plist.strings;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/newOutputFile",
+			);
+			outputFilesCompilerFlags = (
+				"-a",
+			);
+			script = "# builtin-copyStrings\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8303C61E21A3173200B38FE2 /* CopyFiles */ = {
@@ -38,37 +59,49 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1117D1086E3BE4CB4E67B1F0 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
+		1117D191274ADC12A2B876AF /* PBXTargetDependency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXTargetDependency.m; sourceTree = "<group>"; };
+		1117D1BFCB55CC7313BD3BCA /* PBXCopyFilesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCopyFilesBuildPhase.h; sourceTree = "<group>"; };
+		1117D1F67FCB6469033B0EEA /* PBXHeadersBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXHeadersBuildPhase.m; sourceTree = "<group>"; };
+		1117D2162475774B77126037 /* PBXBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildPhase.m; sourceTree = "<group>"; };
+		1117D2AFEA89BF78489D8737 /* PBXTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXTarget.m; sourceTree = "<group>"; };
+		1117D35B9193584F398361EA /* PBXSourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourcesBuildPhase.m; sourceTree = "<group>"; };
+		1117D3FF9BE270C7B2CCEB30 /* PBXNativeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTarget.m; sourceTree = "<group>"; };
+		1117D44E388BC012BC3B18C9 /* PBXNativeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXNativeTarget.h; sourceTree = "<group>"; };
+		1117D4DFF493F611E18A61FB /* Sample.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sample.xml; sourceTree = "<group>"; };
+		1117D4FCCC8DB7270A0523EF /* PBX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBX.h; sourceTree = "<group>"; };
+		1117D68CBED0DCE84D572C28 /* PBXHeadersBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeadersBuildPhase.h; sourceTree = "<group>"; };
+		1117D6E8E65390D4C702838B /* PBXBuildRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildRule.h; sourceTree = "<group>"; };
+		1117D7B523A04B6292B45B0F /* PBXNativeTargetAttribs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXNativeTargetAttribs.h; sourceTree = "<group>"; };
+		1117D9706EABE0383337DBAD /* PBXCopyFilesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCopyFilesBuildPhase.m; sourceTree = "<group>"; };
+		1117D979FD9FB4CE9BF430A3 /* PBX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBX.m; sourceTree = "<group>"; };
+		1117D9B0B33D1BF9AE80B692 /* PBXNativeTargetAttribs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTargetAttribs.m; sourceTree = "<group>"; };
+		1117DAA80573AEB6027BE7A7 /* PBXBuildRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildRule.m; sourceTree = "<group>"; };
+		1117DC1E9AE70A4A33D40142 /* PBXResourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXResourcesBuildPhase.h; sourceTree = "<group>"; };
+		1117DC7FD017F7532173F54B /* PBXFrameworksBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFrameworksBuildPhase.h; sourceTree = "<group>"; };
+		1117DCA333312BD952786B2E /* PBXFrameworksBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFrameworksBuildPhase.m; sourceTree = "<group>"; };
+		1117DCE85CD737DB092C159E /* PBXTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTarget.h; sourceTree = "<group>"; };
+		1117DDA7151C683EFC277BAC /* PBXBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildPhase.h; sourceTree = "<group>"; };
+		1117DDCC5571466DD7B12C26 /* PBXSourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourcesBuildPhase.h; sourceTree = "<group>"; };
+		1117DF37CA66459390DB0A0B /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Sample.plist; sourceTree = SOURCE_ROOT; };
+		1117DF977869A19399F0B570 /* PBXResourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXResourcesBuildPhase.m; sourceTree = "<group>"; };
 		8303C62021A3173200B38FE2 /* PGPBXToCMake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PGPBXToCMake; sourceTree = BUILT_PRODUCTS_DIR; };
 		8303C62321A3173200B38FE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8303C62B21A3175E00B38FE2 /* Rubicon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rubicon.framework; path = ../../../Library/Frameworks/Rubicon.framework; sourceTree = "<group>"; };
-		8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFrameworksBuildPhase.m; sourceTree = "<group>"; };
-		8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXResourcesBuildPhase.m; sourceTree = "<group>"; };
 		8303C63021A317F300B38FE2 /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
 		8303C63121A317F300B38FE2 /* PBXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileReference.m; sourceTree = "<group>"; };
 		8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCBuildConfiguration.m; sourceTree = "<group>"; };
 		8303C63321A317F300B38FE2 /* XCConfigurationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCConfigurationList.h; sourceTree = "<group>"; };
-		8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXSourcesBuildPhase.m; sourceTree = "<group>"; };
 		8303C63521A317F300B38FE2 /* PBXFileReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFileReference.h; sourceTree = "<group>"; };
-		8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCopyFilesBuildPhase.m; sourceTree = "<group>"; };
-		8303C63721A317F300B38FE2 /* PBXTargetDependency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXTargetDependency.m; sourceTree = "<group>"; };
 		8303C63821A317F300B38FE2 /* PBXBuildFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildFile.h; sourceTree = "<group>"; };
-		8303C63921A317F300B38FE2 /* PBXFrameworksBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXFrameworksBuildPhase.h; sourceTree = "<group>"; };
-		8303C63A21A317F300B38FE2 /* PBXResourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXResourcesBuildPhase.h; sourceTree = "<group>"; };
 		8303C63B21A317F400B38FE2 /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
 		8303C63C21A317F400B38FE2 /* XCBuildConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCBuildConfiguration.h; sourceTree = "<group>"; };
-		8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXHeadersBuildPhase.m; sourceTree = "<group>"; };
 		8303C63E21A317F400B38FE2 /* PBXGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXGroup.m; sourceTree = "<group>"; };
-		8303C63F21A317F400B38FE2 /* PBXHeadersBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXHeadersBuildPhase.h; sourceTree = "<group>"; };
 		8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXContainerItemProxy.m; sourceTree = "<group>"; };
 		8303C64121A317F400B38FE2 /* PBXBuildFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildFile.m; sourceTree = "<group>"; };
 		8303C64221A317F400B38FE2 /* XCConfigurationList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCConfigurationList.m; sourceTree = "<group>"; };
-		8303C64321A317F400B38FE2 /* PBXNativeTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXNativeTarget.h; sourceTree = "<group>"; };
 		8303C64421A317F400B38FE2 /* PBXProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXProject.m; sourceTree = "<group>"; };
 		8303C64521A317F400B38FE2 /* PBXContainerItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXContainerItemProxy.h; sourceTree = "<group>"; };
-		8303C64621A317F400B38FE2 /* PBXNativeTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTarget.m; sourceTree = "<group>"; };
-		8303C64721A317F400B38FE2 /* PBXSourcesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXSourcesBuildPhase.h; sourceTree = "<group>"; };
-		8303C64821A317F400B38FE2 /* PBXCopyFilesBuildPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXCopyFilesBuildPhase.h; sourceTree = "<group>"; };
-		8303C64921A317F500B38FE2 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +116,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1117DEDF6A83DFC55475B041 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				1117D44E388BC012BC3B18C9 /* PBXNativeTarget.h */,
+				1117D3FF9BE270C7B2CCEB30 /* PBXNativeTarget.m */,
+				1117D2AFEA89BF78489D8737 /* PBXTarget.m */,
+				1117DCE85CD737DB092C159E /* PBXTarget.h */,
+				1117D7B523A04B6292B45B0F /* PBXNativeTargetAttribs.h */,
+				1117D9B0B33D1BF9AE80B692 /* PBXNativeTargetAttribs.m */,
+				1117D191274ADC12A2B876AF /* PBXTargetDependency.m */,
+				1117D1086E3BE4CB4E67B1F0 /* PBXTargetDependency.h */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
+		1117DF1CD349AE83761D542B /* BuildPhases */ = {
+			isa = PBXGroup;
+			children = (
+				1117DDA7151C683EFC277BAC /* PBXBuildPhase.h */,
+				1117D2162475774B77126037 /* PBXBuildPhase.m */,
+				1117D1BFCB55CC7313BD3BCA /* PBXCopyFilesBuildPhase.h */,
+				1117D9706EABE0383337DBAD /* PBXCopyFilesBuildPhase.m */,
+				1117DC7FD017F7532173F54B /* PBXFrameworksBuildPhase.h */,
+				1117DCA333312BD952786B2E /* PBXFrameworksBuildPhase.m */,
+				1117D68CBED0DCE84D572C28 /* PBXHeadersBuildPhase.h */,
+				1117D1F67FCB6469033B0EEA /* PBXHeadersBuildPhase.m */,
+				1117DC1E9AE70A4A33D40142 /* PBXResourcesBuildPhase.h */,
+				1117DF977869A19399F0B570 /* PBXResourcesBuildPhase.m */,
+				1117DDCC5571466DD7B12C26 /* PBXSourcesBuildPhase.h */,
+				1117D35B9193584F398361EA /* PBXSourcesBuildPhase.m */,
+			);
+			name = BuildPhases;
+			sourceTree = "<group>";
+		};
 		8303C61721A3173200B38FE2 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +172,8 @@
 			children = (
 				8303C62D21A317B500B38FE2 /* PBX */,
 				8303C62321A3173200B38FE2 /* main.m */,
+				1117D4DFF493F611E18A61FB /* Sample.xml */,
+				1117DF37CA66459390DB0A0B /* Sample.plist */,
 			);
 			path = PGPBXToCMake;
 			sourceTree = "<group>";
@@ -124,30 +193,22 @@
 				8303C64121A317F400B38FE2 /* PBXBuildFile.m */,
 				8303C64521A317F400B38FE2 /* PBXContainerItemProxy.h */,
 				8303C64021A317F400B38FE2 /* PBXContainerItemProxy.m */,
-				8303C64821A317F400B38FE2 /* PBXCopyFilesBuildPhase.h */,
-				8303C63621A317F300B38FE2 /* PBXCopyFilesBuildPhase.m */,
 				8303C63521A317F300B38FE2 /* PBXFileReference.h */,
 				8303C63121A317F300B38FE2 /* PBXFileReference.m */,
-				8303C63921A317F300B38FE2 /* PBXFrameworksBuildPhase.h */,
-				8303C62E21A317F200B38FE2 /* PBXFrameworksBuildPhase.m */,
 				8303C63B21A317F400B38FE2 /* PBXGroup.h */,
 				8303C63E21A317F400B38FE2 /* PBXGroup.m */,
-				8303C63F21A317F400B38FE2 /* PBXHeadersBuildPhase.h */,
-				8303C63D21A317F400B38FE2 /* PBXHeadersBuildPhase.m */,
-				8303C64321A317F400B38FE2 /* PBXNativeTarget.h */,
-				8303C64621A317F400B38FE2 /* PBXNativeTarget.m */,
 				8303C63021A317F300B38FE2 /* PBXProject.h */,
 				8303C64421A317F400B38FE2 /* PBXProject.m */,
-				8303C63A21A317F300B38FE2 /* PBXResourcesBuildPhase.h */,
-				8303C62F21A317F300B38FE2 /* PBXResourcesBuildPhase.m */,
-				8303C64721A317F400B38FE2 /* PBXSourcesBuildPhase.h */,
-				8303C63421A317F300B38FE2 /* PBXSourcesBuildPhase.m */,
-				8303C64921A317F500B38FE2 /* PBXTargetDependency.h */,
-				8303C63721A317F300B38FE2 /* PBXTargetDependency.m */,
 				8303C63C21A317F400B38FE2 /* XCBuildConfiguration.h */,
 				8303C63221A317F300B38FE2 /* XCBuildConfiguration.m */,
 				8303C63321A317F300B38FE2 /* XCConfigurationList.h */,
 				8303C64221A317F400B38FE2 /* XCConfigurationList.m */,
+				1117D979FD9FB4CE9BF430A3 /* PBX.m */,
+				1117D4FCCC8DB7270A0523EF /* PBX.h */,
+				1117DAA80573AEB6027BE7A7 /* PBXBuildRule.m */,
+				1117D6E8E65390D4C702838B /* PBXBuildRule.h */,
+				1117DF1CD349AE83761D542B /* BuildPhases */,
+				1117DEDF6A83DFC55475B041 /* Targets */,
 			);
 			path = PBX;
 			sourceTree = "<group>";
@@ -164,6 +225,7 @@
 				8303C61E21A3173200B38FE2 /* CopyFiles */,
 			);
 			buildRules = (
+				8364C2B421A5EB0D004EDC8D /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -209,21 +271,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8303C65021A317F500B38FE2 /* PBXTargetDependency.m in Sources */,
-				8303C64F21A317F500B38FE2 /* PBXCopyFilesBuildPhase.m in Sources */,
 				8303C65221A317F500B38FE2 /* PBXGroup.m in Sources */,
-				8303C64E21A317F500B38FE2 /* PBXSourcesBuildPhase.m in Sources */,
 				8303C65621A317F500B38FE2 /* PBXProject.m in Sources */,
-				8303C64A21A317F500B38FE2 /* PBXFrameworksBuildPhase.m in Sources */,
-				8303C65721A317F500B38FE2 /* PBXNativeTarget.m in Sources */,
-				8303C64B21A317F500B38FE2 /* PBXResourcesBuildPhase.m in Sources */,
 				8303C65521A317F500B38FE2 /* XCConfigurationList.m in Sources */,
 				8303C64D21A317F500B38FE2 /* XCBuildConfiguration.m in Sources */,
 				8303C65421A317F500B38FE2 /* PBXBuildFile.m in Sources */,
 				8303C65321A317F500B38FE2 /* PBXContainerItemProxy.m in Sources */,
-				8303C65121A317F500B38FE2 /* PBXHeadersBuildPhase.m in Sources */,
 				8303C64C21A317F500B38FE2 /* PBXFileReference.m in Sources */,
 				8303C62421A3173200B38FE2 /* main.m in Sources */,
+				1117D1F84B392BF54403366B /* PBX.m in Sources */,
+				1117D4772D39586AF960DD58 /* PBXBuildRule.m in Sources */,
+				1117D267BC21D7FDDC9A1541 /* PBXBuildPhase.m in Sources */,
+				1117D09CFEB13314D8CE0BF9 /* PBXCopyFilesBuildPhase.m in Sources */,
+				1117DA2DA5A61D0432588EA9 /* PBXFrameworksBuildPhase.m in Sources */,
+				1117D43498EA23DFD6D0D543 /* PBXHeadersBuildPhase.m in Sources */,
+				1117DF0B340626A2BE9C3235 /* PBXResourcesBuildPhase.m in Sources */,
+				1117DDF2F59B84E672EB9631 /* PBXSourcesBuildPhase.m in Sources */,
+				1117D06193AF46AA12359477 /* PBXNativeTarget.m in Sources */,
+				1117DFF8C05CE433704C6388 /* PBXTarget.m in Sources */,
+				1117D2BDB68BBAEFE921E43D /* PBXNativeTargetAttribs.m in Sources */,
+				1117D7DA8005D2F2C69AE009 /* PBXTargetDependency.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

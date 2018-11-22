@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXBuildRule.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/21/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,28 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#ifndef __PGPBXTOCMAKE_PBXBUILDRULE_H__
+#define __PGPBXTOCMAKE_PBXBUILDRULE_H__
 
+#import <Cocoa/Cocoa.h>
 #import "PBX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XCBuildConfiguration : PBX
+@interface PBXBuildRule : PBX
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+    @property(readonly) BOOL     isEditable;
+    @property(readonly) NSString *compilerSpec;
+    @property(readonly) NSString *fileType;
+    @property(readonly) NSString *script;
+    @property(readonly) PBXArray outputFiles;
+    @property(readonly) PBXArray outputFilesCompilerFlags;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
+    +(instancetype)buildRuleWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#endif // __PGPBXTOCMAKE_PBXBUILDRULE_H__

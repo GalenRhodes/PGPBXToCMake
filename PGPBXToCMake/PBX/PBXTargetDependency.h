@@ -23,11 +23,22 @@
 #ifndef __PGPBXTOCMAKE_PBXTARGETDEPENDENCY__
 #define __PGPBXTOCMAKE_PBXTARGETDEPENDENCY__
 
-#import <Rubicon/Rubicon.h>
+#import "PBX.h"
+
+@class PBXContainerItemProxy;
+@class PBXTarget;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXTargetDependency : NSObject
+@interface PBXTargetDependency : PBX
+
+    @property(readonly) PBXContainerItemProxy *targetProxy;
+    @property(readonly) PBXTarget             *target;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)targetDependencyWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END

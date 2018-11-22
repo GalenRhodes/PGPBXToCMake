@@ -23,11 +23,31 @@
 #ifndef __PGPBXTOCMAKE_PBXNATIVETARGET__
 #define __PGPBXTOCMAKE_PBXNATIVETARGET__
 
-#import <Rubicon/Rubicon.h>
+#import "PBXTarget.h"
+
+@class PBXNativeTargetAttribs;
+@class PBXFileReference;
+@class PBXTargetDependency;
+@class XCConfigurationList;
+@class PBXSourcesBuildPhase;
+@class PBXBuildRule;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXNativeTarget : NSObject
+@interface PBXNativeTarget : PBXTarget
+
+    @property(readonly) PBXNativeTargetAttribs          *attributes;
+    @property(readonly) NSString                        *productName;
+    @property(readonly) NSString                        *productType;
+    @property(readonly) PBXFileReference                *productReference;
+    @property(readonly) XCConfigurationList             *buildConfigurationList;
+    @property(readonly) NSArray<PBXSourcesBuildPhase *> *buildPhases;
+    @property(readonly) NSArray<PBXBuildRule *>         *buildRules;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)pbxNativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END

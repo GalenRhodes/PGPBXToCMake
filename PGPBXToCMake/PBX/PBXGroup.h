@@ -24,10 +24,24 @@
 #define __PGPBXTOCMAKE_PBXGROUP__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
+
+@class PBXFileReference;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXGroup : NSObject
+@interface PBXGroup : PBX
+
+    @property(readonly) NSString                    *name;
+    @property(readonly) NSString                    *sourceTree;
+    @property(readonly) NSArray<PBXFileReference *> *children;
+    @property(readonly) NSArray<PBXGroup *>         *subGroups;
+    @property(readonly) NSArray<PBX *>              *others;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
+    +(instancetype)pbxGroupWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,10 +24,22 @@
 #define __PGPBXTOCMAKE_XCCONFIGURATIONLIST__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
+
+@class XCBuildConfiguration;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XCConfigurationList : NSObject
+@interface XCConfigurationList : PBX
+
+    @property(readonly) NSArray<XCBuildConfiguration *> *buildConfigurations;
+    @property(readonly) NSString                        *defaultConfigurationName;
+    @property(readonly) BOOL                            defaultConfigurationIsVisible;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
+    +(instancetype)xcConfigListWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

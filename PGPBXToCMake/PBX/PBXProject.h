@@ -24,10 +24,32 @@
 #define __PGPBXTOCMAKE_PBXPROJECT__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
+
+@class XCConfigurationList;
+@class PBXGroup;
+@class PBXNativeTarget;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXProject : NSObject
+@interface PBXProject : PBX
+
+    @property(readonly) PBXDict                    attributes;
+    @property(readonly) NSString                   *compatibilityVersion;
+    @property(readonly) NSString                   *developmentRegion;
+    @property(readonly) BOOL                       hasScannedForEncodings;
+    @property(readonly) PBXArray                   knownRegions;
+    @property(readonly) NSString                   *projectDirPath;
+    @property(readonly) NSString                   *projectRoot;
+    @property(readonly) XCConfigurationList        *buildConfigurationList;
+    @property(readonly) PBXGroup                   *mainGroup;
+    @property(readonly) PBXGroup                   *productRefGroup;
+    @property(readonly) NSArray<PBXNativeTarget *> *targets;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
+    +(instancetype)pbxProjectWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+
 @end
 
 NS_ASSUME_NONNULL_END

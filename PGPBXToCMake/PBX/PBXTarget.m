@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXTarget.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/22/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,36 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#import "PBXTarget.h"
+#import "PBXTargetDependency.h"
 
-#import "PBX.h"
+@implementation PBXTarget {
+    }
 
-NS_ASSUME_NONNULL_BEGIN
+    @synthesize dependencies = _dependencies;
 
-@interface XCBuildConfiguration : PBX
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+        if(self) {
+            PBXArray plistDeps = (PBXArray)self.plistBranch[@"dependencies"];
+            _dependencies = [NSMutableArray arrayWithCapacity:plistDeps.count ?: 1];
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+            for(NSString *id in plistDeps) {
+                PBXTargetDependency *dep = [PBXTargetDependency targetDependencyWithID:id plist:plist];
+                if(dep) ADDOBJ(_dependencies, dep);
+            }
+        }
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
+        return self;
+    }
+
+    +(instancetype)targetWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(NSString *)name {
+        return self.plistBranch[@"name"];
+    }
+
 @end
-
-NS_ASSUME_NONNULL_END
-
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__

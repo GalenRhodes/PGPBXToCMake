@@ -23,11 +23,19 @@
 #ifndef __PGPBXTOCMAKE_PBXCOPYFILESBUILDPHASE__
 #define __PGPBXTOCMAKE_PBXCOPYFILESBUILDPHASE__
 
-#import <Rubicon/Rubicon.h>
+#import "PBXBuildPhase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXCopyFilesBuildPhase : NSObject
+@interface PBXCopyFilesBuildPhase : PBXBuildPhase
+
+    @property(readonly) NSInteger dstSubfolderSpec;
+    @property(readonly) NSString  *dstPath;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)copyFilesBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END

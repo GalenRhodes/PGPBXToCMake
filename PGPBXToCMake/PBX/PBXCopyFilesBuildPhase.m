@@ -23,5 +23,38 @@
 #import "PBXCopyFilesBuildPhase.h"
 
 @implementation PBXCopyFilesBuildPhase {
-}
+    }
+
+///* Begin PBXCopyFilesBuildPhase section */
+//    8303C61E21A3173200B38FE2 /* CopyFiles */ = {
+//        isa             = PBXCopyFilesBuildPhase;
+//        buildActionMask = 2147483647;
+//        dstPath = /usr / share / man / man1 / ;
+//        dstSubfolderSpec                   = 0;
+//        files                              = ();
+//        runOnlyForDeploymentPostprocessing = 1;
+//    };
+///* End PBXCopyFilesBuildPhase section */
+
+    +(instancetype)copyFilesBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+        }
+
+        return self;
+    }
+
+    -(NSInteger)dstSubfolderSpec {
+        return INTVAL(@"dstSubfolderSpec");
+    }
+
+    -(NSString *)dstPath {
+        return self.plistBranch[@"dstPath"];
+    }
+
 @end

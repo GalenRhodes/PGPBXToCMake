@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXNativeTargetAttribs.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/21/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,24 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#ifndef __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__
+#define __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__
 
 #import "PBX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XCBuildConfiguration : PBX
+@interface PBXNativeTargetAttribs : NSObject
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+    @property(readonly) NSString *createdOnToolsVersion;
+    @property(readonly) NSString *developmentTeam;
+    @property(readonly) NSString *provisioningStyle;
+    @property(readonly) PBXDict  attributes;
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+    -(instancetype)initWithAttributes:(PBXDict)attrs;
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#endif // __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__

@@ -23,11 +23,15 @@
 #ifndef __PGPBXTOCMAKE_PBXRESOURCESBUILDPHASE__
 #define __PGPBXTOCMAKE_PBXRESOURCESBUILDPHASE__
 
-#import <Rubicon/Rubicon.h>
+#import "PBXBuildPhase.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXResourcesBuildPhase : NSObject
+@interface PBXResourcesBuildPhase : PBXBuildPhase
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)resourcesBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END

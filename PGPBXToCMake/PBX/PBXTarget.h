@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXTarget.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/22/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,26 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#ifndef __PGPBXTOCMAKE_PBXTARGET_H__
+#define __PGPBXTOCMAKE_PBXTARGET_H__
 
 #import "PBX.h"
 
+@class PBXTargetDependency;
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XCBuildConfiguration : PBX
+@interface PBXTarget : PBX
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+    @property(readonly) NSString                       *name;
+    @property(readonly) NSArray<PBXTargetDependency *> *dependencies;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
+    +(instancetype)targetWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#endif // __PGPBXTOCMAKE_PBXTARGET_H__

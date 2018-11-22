@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXBuildPhase.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/22/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,26 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#ifndef __PGPBXTOCMAKE_PBXBUILDPHASE_H__
+#define __PGPBXTOCMAKE_PBXBUILDPHASE_H__
 
+#import <Cocoa/Cocoa.h>
 #import "PBX.h"
+
+@class PBXBuildFile;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XCBuildConfiguration : PBX
+@interface PBXBuildPhase : PBX
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+    @property(readonly) BOOL                    runOnlyForDeploymentPostprocessing;
+    @property(readonly) NSArray<PBXBuildFile *> *files;
+    @property(readonly) NSInteger               buildActionMask;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#endif // __PGPBXTOCMAKE_PBXBUILDPHASE_H__

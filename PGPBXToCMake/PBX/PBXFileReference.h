@@ -24,10 +24,23 @@
 #define __PGPBXTOCMAKE_PBXFILEREFERENCE__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXFileReference : NSObject
+@interface PBXFileReference : PBX
+
+    @property(readonly) NSString *fileEncoding;      //      fileEncoding = 4
+    @property(readonly) NSString *lastKnownFileType; //      lastKnownFileType = sourcecode.c.h
+    @property(readonly) NSString *path;              //      path = "NSError+PGError.h"
+    @property(readonly) NSString *sourceTree;        //      sourceTree = "<group>"
+    @property(readonly) NSString *explicitFileType;
+    @property(readonly) BOOL     includeInIndex;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)fileReferenceWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END

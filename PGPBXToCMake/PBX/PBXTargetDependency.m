@@ -21,7 +21,39 @@
  *//************************************************************************/
 
 #import "PBXTargetDependency.h"
+#import "PBXContainerItemProxy.h"
+#import "PBXNativeTarget.h"
 
 @implementation PBXTargetDependency {
-}
+    }
+
+//    8353A99B21419B270017D1DE /* PBXTargetDependency */ = {
+//        isa         = PBXTargetDependency;
+//        target      = 83CC448B1E0B037600DDE50D /* Rubicon */;
+//        targetProxy = 8353A99A21419B270017D1DE /* PBXContainerItemProxy */;
+//    };
+
+    @synthesize targetProxy = _targetProxy;
+    @synthesize target = _target;
+
+    +(instancetype)targetDependencyWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            _targetProxy = [PBXContainerItemProxy containerItemProxyWithID:self.plistBranch[@"targetProxy"] plist:plist];
+
+            NSString *targetID = self.plistBranch[@"target"];
+            NSString *oisa     = DICT(self.plistObjects[targetID])[@"isa"];
+
+            if([NSStringFromClass([PBXNativeTarget class]) isEqualToString:oisa]) _target = [PBXNativeTarget pbxNativeTargetWithID:targetID plist:plist];
+            else if([[NSRegularExpression regularExpressionWithPattern:@"PBX\\w+?Target"] matches:oisa]) _target = [PBXTarget targetWithID:targetID plist:plist];
+        }
+
+        return self;
+    }
+
 @end

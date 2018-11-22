@@ -24,10 +24,23 @@
 #define __PGPBXTOCMAKE_PBXCONTAINERITEMPROXY__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXContainerItemProxy : NSObject
+/**
+ * This class seems to allow one PBX object to stand in (be a proxy for) another PBX object.
+ */
+@interface PBXContainerItemProxy : PBX
+
+    @property(readonly) NSString *proxyType;
+    @property(readonly) NSString *remoteInfo;
+    @property(readonly) PBX      *remoteGlobalIDString;
+    @property(readonly) PBX      *containerPortal;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    +(instancetype)containerItemProxyWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END

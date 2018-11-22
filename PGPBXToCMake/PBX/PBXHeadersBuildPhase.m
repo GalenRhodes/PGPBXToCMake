@@ -23,5 +23,19 @@
 #import "PBXHeadersBuildPhase.h"
 
 @implementation PBXHeadersBuildPhase {
-}
+    }
+
+    +(instancetype)headersBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+        }
+
+        return self;
+    }
+
 @end

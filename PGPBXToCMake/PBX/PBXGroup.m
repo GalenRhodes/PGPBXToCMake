@@ -21,7 +21,61 @@
  *//************************************************************************/
 
 #import "PBXGroup.h"
+#import "PBXFileReference.h"
 
 @implementation PBXGroup {
-}
+    }
+
+//    83CC448D1E0B037700DDE50D /* Products */ = {
+//        isa        = PBXGroup;
+//        children   = (83CC448C1E0B037700DDE50D /* Rubicon.framework */, 83CC44951E0B037700DDE50D /* RubiconTests.xctest */, 8353A99321419B190017D1DE /* TypeSizes */,);
+//        name       = Products;
+//        sourceTree = "<group>";
+//    };
+
+    @synthesize children = _children;
+    @synthesize subGroups = _subGroups;
+    @synthesize others = _others;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            PBXArray plistChildren = self.plistBranch[@"children"];
+            _children  = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
+            _subGroups = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
+            _others    = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
+
+            for(NSString *id in plistChildren) {
+                PBX *o = [PBX objectFromID:id plist:plist];
+                if(o) {
+                    PGSWITCH(o.pbxISA);
+                        PGCASE(NSStringFromClass([PBXGroup class]);
+                            ADDOBJ(_subGroups, o);
+                            break; PGCASE(NSStringFromClass([PBXFileReference class]));
+                            ADDOBJ(_children, o);
+                            break;
+                        PGDEFAULT;
+                            ADDOBJ(_others, o);
+                            break;
+                    PGSWITCHEND;
+                }
+            }
+        }
+
+        return self;
+    }
+
+    +(instancetype)pbxGroupWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        return [[self alloc] initWithID:pbxID plist:plist error:error];
+    }
+
+    -(NSString *)name {
+        return self.plistBranch[@"name"];
+    }
+
+    -(NSString *)sourceTree {
+        return self.plistBranch[@"sourceTree"];
+    }
+
 @end

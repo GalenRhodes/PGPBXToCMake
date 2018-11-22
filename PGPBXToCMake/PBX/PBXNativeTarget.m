@@ -21,7 +21,57 @@
  *//************************************************************************/
 
 #import "PBXNativeTarget.h"
+#import "PBXFileReference.h"
+#import "XCConfigurationList.h"
+#import "PBXSourcesBuildPhase.h"
+#import "PBXBuildRule.h"
 
 @implementation PBXNativeTarget {
-}
+    }
+
+    @synthesize attributes = _attributes;
+    @synthesize productReference = _productReference;
+    @synthesize buildConfigurationList = _buildConfigurationList;
+    @synthesize buildPhases = _buildPhases;
+    @synthesize buildRules = _buildRules;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            _productReference       = [PBXFileReference fileReferenceWithID:self.plistBranch[@"productReference"] plist:plist];
+            _buildConfigurationList = [XCConfigurationList xcConfigListWithID:self.plistBranch[@"buildConfigurationList"] plist:plist error:nil];
+
+            PBXArray plistBuildPhases = self.plistBranch[@"buildPhases"];
+            _buildPhases = [NSMutableArray arrayWithCapacity:(plistBuildPhases.count ?: 1)];
+
+            for(NSString *id in plistBuildPhases) {
+                PBXSourcesBuildPhase *sbp = [PBXSourcesBuildPhase sourcesBuildPhaseWithID:id plist:plist];
+                if(sbp) ADDOBJ(_buildPhases, sbp);
+            }
+
+            PBXArray plistRules = self.plistBranch[@"buildRules"];
+            _buildRules = [NSMutableArray arrayWithCapacity:(plistRules.count ?: 1)];
+
+            for(NSString *id in plistRules) {
+                PBXBuildRule *rule = [PBXBuildRule buildRuleWithID:id plist:plist];
+                if(rule) ADDOBJ(_buildRules, rule);
+            }
+        }
+
+        return self;
+    }
+
+    +(instancetype)pbxNativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(NSString *)productName {
+        return self.plistBranch[@"productName"];
+    }
+
+    -(NSString *)productType {
+        return self.plistBranch[@"productType"];
+    }
+
 @end

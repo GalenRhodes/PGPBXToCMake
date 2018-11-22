@@ -21,7 +21,68 @@
  *//************************************************************************/
 
 #import "PBXProject.h"
+#import "XCConfigurationList.h"
+#import "PBXGroup.h"
+#import "PBXNativeTarget.h"
 
 @implementation PBXProject {
-}
+    }
+
+    @synthesize buildConfigurationList = _buildConfigurationList;
+    @synthesize mainGroup = _mainGroup;
+    @synthesize productRefGroup = _productRefGroup;
+    @synthesize targets = _targets;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            _buildConfigurationList = [XCConfigurationList xcConfigListWithID:self.plistBranch[@"buildConfigurationList"] plist:plist error:error];
+            _mainGroup              = [PBXGroup pbxGroupWithID:self.plistBranch[@"mainGroup"] plist:plist error:error];
+            _productRefGroup        = [PBXGroup pbxGroupWithID:self.plistBranch[@"productRefGroup"] plist:plist error:error];
+
+            PBXArray pTargets = self.plistBranch[@"targets"];
+            _targets = [NSMutableArray arrayWithCapacity:pTargets.count ?: 1];
+
+            for(NSString *targetID in pTargets) {
+                PBXNativeTarget *nativeTarget = [PBXNativeTarget pbxNativeTargetWithID:targetID plist:plist];
+                if(nativeTarget) ADDOBJ(_targets, nativeTarget);
+            }
+        }
+
+        return self;
+    }
+
+    +(instancetype)pbxProjectWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        return [[self alloc] initWithID:pbxID plist:plist error:error];
+    }
+
+    -(PBXDict)attributes {
+        return self.plist[@"attributes"];
+    }
+
+    -(NSString *)compatibilityVersion {
+        return self.plist[@"compatibilityVersion"];
+    }
+
+    -(NSString *)developmentRegion {
+        return self.plist[@"developmentRegion"];
+    }
+
+    -(BOOL)hasScannedForEncodings {
+        return BOOLVAL(@"hasScannedForEncodings");
+    }
+
+    -(PBXArray)knownRegions {
+        return self.plist[@"knownRegions"];
+    }
+
+    -(NSString *)projectDirPath {
+        return self.plist[@"projectDirPath"];
+    }
+
+    -(NSString *)projectRoot {
+        return self.plist[@"projectRoot"];
+    }
+
 @end

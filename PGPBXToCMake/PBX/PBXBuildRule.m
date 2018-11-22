@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.m
+ *    FILENAME: PBXBuildRule.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/21/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,25 +20,12 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "XCBuildConfiguration.h"
+#import "PBXBuildRule.h"
 
-@implementation XCBuildConfiguration {
+@implementation PBXBuildRule {
     }
 
-//    83CC44A51E0B037700DDE50D /* Release */ = {
-//        isa           = XCBuildConfiguration;
-//        buildSettings = {
-//                COMBINE_HIDPI_IMAGES = YES;
-//                DEVELOPMENT_TEAM = Q5XWZ7S7E9;
-//                INFOPLIST_FILE = RubiconTests/Info.plist;
-//                LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-//                PRODUCT_BUNDLE_IDENTIFIER = com.projectgalen.RubiconTests;
-//                PRODUCT_NAME = "$(TARGET_NAME)";
-//        };
-//        name          = Release;
-//    };
-
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist {
+    +(instancetype)buildRuleWithID:(NSString *)pbxID plist:(PBXDict)plist {
         return [[self alloc] initWithID:pbxID plist:plist];
     }
 
@@ -46,17 +33,46 @@
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
+            // TODO: Finish...
         }
 
         return self;
     }
 
-    -(NSString *)name {
-        return self.plistBranch[@"name"];
+///* Begin PBXBuildRule section */
+//    8364C2B421A5EB0D004EDC8D /* PBXBuildRule */ = {
+//        isa                      = PBXBuildRule;
+//        compilerSpec             = com.apple.compilers.proxy.script;
+//        fileType                 = text.plist.strings;
+//        script                   = "# builtin-copyStrings\n";
+//        isEditable               = 1;
+//        outputFiles              = ("$(DERIVED_FILE_DIR)/newOutputFile",);
+//        outputFilesCompilerFlags = ("-a",);
+//    };
+///* End PBXBuildRule section */
+
+    -(BOOL)isEditable {
+        return BOOLVAL(@"isEditable");
     }
 
-    -(PBXArray)buildSettings {
-        return self.plistBranch[@"buildSettings"];
+    -(NSString *)compilerSpec {
+        return self.plistBranch[@"compilerSpec"];
+    }
+
+    -(NSString *)fileType {
+        return self.plistBranch[@"fileType"];
+    }
+
+    -(NSString *)script {
+        return self.plistBranch[@"script"];
+    }
+
+    -(PBXArray)outputFiles {
+        return self.plistBranch[@"outputFiles"];
+    }
+
+    -(PBXArray)outputFilesCompilerFlags {
+        return self.plistBranch[@"outputFilesCompilerFlags"];
     }
 
 @end

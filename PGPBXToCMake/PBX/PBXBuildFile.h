@@ -24,10 +24,27 @@
 #define __PGPBXTOCMAKE_PBXBUILDFILE__
 
 #import <Rubicon/Rubicon.h>
+#import "PBX.h"
+
+@class PBXFileReference;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXBuildFile : NSObject
+typedef NS_ENUM(NSUInteger, PBXFileVisibility) {
+    PBXFileVisibilityProject = 0, PBXFileVisibilityPrivate, PBXFileVisibilityPublic
+};
+
+@interface PBXBuildFile : PBX
+
+    @property(readonly) PBXFileVisibility visibility;
+    @property(readonly) PBXFileReference  *file;
+    @property(readonly) PBXDict           settings;
+    @property(readonly) PBXArray          attributes;
+
+    +(instancetype)buildFileWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -23,5 +23,51 @@
 #import "PBXFileReference.h"
 
 @implementation PBXFileReference {
-}
+    }
+
+    //  1117D9DC70BE474C3D16B0BA /* NSError+PGError.h */ = {
+    //      isa = PBXFileReference;
+    //      fileEncoding = 4;
+    //      lastKnownFileType = sourcecode.c.h;
+    //      path = "NSError+PGError.h";
+    //      sourceTree = "<group>";
+    // };
+
+    +(instancetype)fileReferenceWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+        }
+
+        return self;
+    }
+
+    -(NSString *)fileEncoding {
+        return self.plistBranch[@"fileEncoding"];
+    }
+
+    -(NSString *)lastKnownFileType {
+        return self.plistBranch[@"lastKnownFileType"];
+    }
+
+    -(NSString *)path {
+        return self.plistBranch[@"path"];
+    }
+
+    -(NSString *)sourceTree {
+        return self.plistBranch[@"sourceTree"];
+    }
+
+    -(NSString *)explicitFileType {
+        return self.plistBranch[@"explicitFileType"];
+    }
+
+    -(BOOL)includeInIndex {
+        return ![self.plistBranch[@"includeInIndex"] isEqualToString:@"0"];
+    }
+
 @end

@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: XCBuildConfiguration.h
+ *    FILENAME: PBXNativeTargetAttribs.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/21/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,23 +20,33 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
-#define __PGPBXTOCMAKE_XCBUILDCONFIGURATION__
+#import "PBXNativeTargetAttribs.h"
 
-#import "PBX.h"
+@implementation PBXNativeTargetAttribs {
+    }
 
-NS_ASSUME_NONNULL_BEGIN
+    @synthesize attributes = _attributes;
 
-@interface XCBuildConfiguration : PBX
+    -(instancetype)initWithAttributes:(PBXDict)attrs {
+        self = [super init];
 
-    @property(readonly) NSString *name;
-    @property(readonly) PBXArray buildSettings;
+        if(self) {
+            _attributes = attrs;
+        }
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
+        return self;
+    }
 
-    +(instancetype)buildConfigurationWithID:(NSString *)pbxID plist:(PBXDict)plist;
+    -(NSString *)createdOnToolsVersion {
+        return _attributes[@"CreatedOnToolsVersion"];
+    }
+
+    -(NSString *)developmentTeam {
+        return _attributes[@"DevelopmentTeam"];
+    }
+
+    -(NSString *)provisioningStyle {
+        return _attributes[@"ProvisioningStyle"];
+    }
+
 @end
-
-NS_ASSUME_NONNULL_END
-
-#endif // __PGPBXTOCMAKE_XCBUILDCONFIGURATION__

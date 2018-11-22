@@ -23,5 +23,40 @@
 #import "PBXContainerItemProxy.h"
 
 @implementation PBXContainerItemProxy {
-}
+    }
+
+//    8353A99A21419B270017D1DE /* PBXContainerItemProxy */ = {
+//        isa                  = PBXContainerItemProxy;
+//        containerPortal      = 83CC44831E0B037600DDE50D /* Project object */;
+//        proxyType            = 1;
+//        remoteGlobalIDString = 83CC448B1E0B037600DDE50D;
+//        remoteInfo           = Rubicon;
+//    };
+
+    @synthesize remoteGlobalIDString = _remoteGlobalIDString;
+    @synthesize containerPortal = _containerPortal;
+
+    +(instancetype)containerItemProxyWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            _containerPortal      = [PBX objectFromID:self.plistBranch[@"containerPortal"] plist:plist];
+            _remoteGlobalIDString = [PBX objectFromID:self.plistBranch[@"remoteGlobalIDString"] plist:plist];
+        }
+
+        return self;
+    }
+
+    -(NSString *)proxyType {
+        return self.plistBranch[@"proxyType"];
+    }
+
+    -(NSString *)remoteInfo {
+        return self.plistBranch[@"remoteInfo"];
+    }
+
 @end

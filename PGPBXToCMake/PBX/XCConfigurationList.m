@@ -21,7 +21,45 @@
  *//************************************************************************/
 
 #import "XCConfigurationList.h"
+#import "XCBuildConfiguration.h"
 
 @implementation XCConfigurationList {
-}
+    }
+
+//    8353A99921419B190017D1DE /* Build configuration list for PBXNativeTarget "TypeSizes" */ = {
+//        isa                           = XCConfigurationList;
+//        buildConfigurations           = (8353A99721419B190017D1DE /* Debug */, 8353A99821419B190017D1DE /* Release */,);
+//        defaultConfigurationIsVisible = 0;
+//        defaultConfigurationName      = Release;
+//    };
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        self = [super initWithID:pbxID plist:plist];
+
+        if(self) {
+            PBXArray configs = self.plistBranch[@"buildConfigurations"];
+            _buildConfigurations = [NSMutableArray arrayWithCapacity:configs.count ?: 1];
+
+            for(NSString *id in configs) {
+                XCBuildConfiguration *o = [XCBuildConfiguration buildConfigurationWithID:id plist:plist];
+                if(o) ADDOBJ(_buildConfigurations, o);
+            }
+        }
+
+        return self;
+    }
+
+    +(instancetype)xcConfigListWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+        return [[self alloc] initWithID:pbxID plist:plist error:error];
+    }
+
+    -(NSString *)defaultConfigurationName {
+        return self.plist[@"defaultConfigurationName"];
+    }
+
+    -(BOOL)defaultConfigurationIsVisible {
+        NSString *v = self.plist[@"defaultConfigurationIsVisible"];
+        return (v && ![@"0" isEqualToString:v]);
+    }
+
 @end
