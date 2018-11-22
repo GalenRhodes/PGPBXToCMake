@@ -58,8 +58,7 @@
     }
 
     -(BOOL)defaultConfigurationIsVisible {
-        NSString *v = self.plist[@"defaultConfigurationIsVisible"];
-        return (v && ![@"0" isEqualToString:v]);
+        return BOOLVAL(@"defaultConfigurationIsVisible");
     }
 
 @end

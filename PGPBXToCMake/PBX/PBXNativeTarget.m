@@ -62,7 +62,7 @@
         return self;
     }
 
-    +(instancetype)pbxNativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist {
+    +(instancetype)nativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist {
         return [[self alloc] initWithID:pbxID plist:plist];
     }
 
@@ -72,6 +72,10 @@
 
     -(NSString *)productType {
         return self.plistBranch[@"productType"];
+    }
+
+    -(void)setAttributes:(PBXNativeTargetAttribs *)attribs {
+        _attributes = attribs;
     }
 
 @end

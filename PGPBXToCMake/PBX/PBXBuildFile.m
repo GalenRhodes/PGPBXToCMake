@@ -27,13 +27,8 @@
     }
 // 1117D1F84B392BF54403366B /* PBX.m in Sources */ = {isa = PBXBuildFile; fileRef = 1117D979FD9FB4CE9BF430A3 /* PBX.m */; settings = {ATTRIBUTES = (Private, ); }; };
 
-
     @synthesize visibility = _visibility;
     @synthesize file = _file;
-
-    +(instancetype)buildFileWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        return [[self alloc] initWithID:pbxID plist:plist];
-    }
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
@@ -42,18 +37,24 @@
             _file       = [PBXFileReference fileReferenceWithID:self.plistBranch[@"fileRef"] plist:plist];
             _visibility = PBXFileVisibilityProject;
 
-            PBXArray attr = [self attributes];
-
-            if(attr.count) {
-                for(NSString *a in attr) {
-                    if([a isEqualToString:@"Private"]) _visibility = PBXFileVisibilityPrivate;
-                    else if([a isEqualToString:@"Public"]) _visibility = PBXFileVisibilityPublic;
-                    else if([a isEqualToString:@"Project"]) _visibility = PBXFileVisibilityProject;
-                }
-            }
+            [self setVisibility:self.attributes];
         }
 
         return self;
+    }
+
+    +(instancetype)buildFileWithID:(NSString *)pbxID plist:(PBXDict)plist {
+        return [[self alloc] initWithID:pbxID plist:plist];
+    }
+
+    -(void)setVisibility:(PBXArray)attr {
+        if(attr.count) {
+            for(NSString *a in attr) {
+                if([a isEqualToString:@"Private"]) _visibility = PBXFileVisibilityPrivate;
+                else if([a isEqualToString:@"Public"]) _visibility = PBXFileVisibilityPublic;
+                else if([a isEqualToString:@"Project"]) _visibility = PBXFileVisibilityProject;
+            }
+        }
     }
 
     -(PBXArray)attributes {

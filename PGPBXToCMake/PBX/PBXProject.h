@@ -29,12 +29,12 @@
 @class XCConfigurationList;
 @class PBXGroup;
 @class PBXNativeTarget;
+@class PBXProjectAttributes;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PBXProject : PBX
 
-    @property(readonly) PBXDict                    attributes;
     @property(readonly) NSString                   *compatibilityVersion;
     @property(readonly) NSString                   *developmentRegion;
     @property(readonly) BOOL                       hasScannedForEncodings;
@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
     @property(readonly) PBXGroup                   *mainGroup;
     @property(readonly) PBXGroup                   *productRefGroup;
     @property(readonly) NSArray<PBXNativeTarget *> *targets;
+    @property(readonly) PBXProjectAttributes       *attributes;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
 

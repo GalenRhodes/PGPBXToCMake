@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)pbxNativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist;
+    +(instancetype)nativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
 

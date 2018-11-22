@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXNativeTargetAttribs.h
+ *    FILENAME: PBXProjectAttributes.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 11/21/18
+ *        DATE: 11/22/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,26 +20,27 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#ifndef __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__
-#define __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__
+#ifndef __PGPBXTOCMAKE_PBXPROJECTATTRIBUTES_H__
+#define __PGPBXTOCMAKE_PBXPROJECTATTRIBUTES_H__
 
+#import <Cocoa/Cocoa.h>
 #import "PBX.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXNativeTargetAttribs : NSObject
+@interface PBXProjectAttributes : NSObject
 
-    @property(readonly) NSString *createdOnToolsVersion;
-    @property(readonly) NSString *developmentTeam;
-    @property(readonly) NSString *provisioningStyle;
-    @property(readonly) PBXDict  attributes;
+    @property(readonly) NSString *lastUpgradeCheck;
+    @property(readonly) NSString *organizationName;
+    @property(readonly) PBXDict  otherAttributes;
 
-    +(instancetype)nativeTargetAttributesWithAttributes:(PBXDict)attrs;
+    -(instancetype)initWithAttributes:(PBXDict)otherAttributes plist:(PBXDict)plist;
 
-    -(instancetype)initWithAttributes:(PBXDict)attrs;
+    +(instancetype)attributesWithAttributes:(PBXDict)otherAttributes plist:(PBXDict)plist;
+
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#endif // __PGPBXTOCMAKE_PBXNATIVETARGETATTRIBS_H__
+#endif // __PGPBXTOCMAKE_PBXPROJECTATTRIBUTES_H__

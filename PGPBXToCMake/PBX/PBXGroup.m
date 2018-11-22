@@ -50,9 +50,10 @@
                 PBX *o = [PBX objectFromID:id plist:plist];
                 if(o) {
                     PGSWITCH(o.pbxISA);
-                        PGCASE(NSStringFromClass([PBXGroup class]);
+                        PGCASE(NSStringFromClass([PBXGroup class]));
                             ADDOBJ(_subGroups, o);
-                            break; PGCASE(NSStringFromClass([PBXFileReference class]));
+                            break;
+                        PGCASE(NSStringFromClass([PBXFileReference class]));
                             ADDOBJ(_children, o);
                             break;
                         PGDEFAULT;

@@ -24,6 +24,7 @@
 #import "XCConfigurationList.h"
 #import "PBXGroup.h"
 #import "PBXNativeTarget.h"
+#import "PBXProjectAttributes.h"
 
 @implementation PBXProject {
     }
@@ -32,22 +33,25 @@
     @synthesize mainGroup = _mainGroup;
     @synthesize productRefGroup = _productRefGroup;
     @synthesize targets = _targets;
+    @synthesize attributes = _attributes;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
+            PBXArray pTargets = self.plistBranch[@"targets"];
+
             _buildConfigurationList = [XCConfigurationList xcConfigListWithID:self.plistBranch[@"buildConfigurationList"] plist:plist error:error];
             _mainGroup              = [PBXGroup pbxGroupWithID:self.plistBranch[@"mainGroup"] plist:plist error:error];
             _productRefGroup        = [PBXGroup pbxGroupWithID:self.plistBranch[@"productRefGroup"] plist:plist error:error];
-
-            PBXArray pTargets = self.plistBranch[@"targets"];
-            _targets = [NSMutableArray arrayWithCapacity:pTargets.count ?: 1];
+            _targets                = [NSMutableArray arrayWithCapacity:pTargets.count ?: 1];
 
             for(NSString *targetID in pTargets) {
-                PBXNativeTarget *nativeTarget = [PBXNativeTarget pbxNativeTargetWithID:targetID plist:plist];
-                if(nativeTarget) ADDOBJ(_targets, nativeTarget);
+                PBXNativeTarget *o = [PBXNativeTarget nativeTargetWithID:targetID plist:plist];
+                if(o) ADDOBJ(_targets, o);
             }
+
+            _attributes = [PBXProjectAttributes attributesWithAttributes:self.plistBranch[@"attributes"] plist:plist];
         }
 
         return self;
@@ -55,10 +59,6 @@
 
     +(instancetype)pbxProjectWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
         return [[self alloc] initWithID:pbxID plist:plist error:error];
-    }
-
-    -(PBXDict)attributes {
-        return self.plist[@"attributes"];
     }
 
     -(NSString *)compatibilityVersion {

@@ -27,6 +27,10 @@
 
     @synthesize attributes = _attributes;
 
+    +(instancetype)nativeTargetAttributesWithAttributes:(PBXDict)attrs {
+        return [[self alloc] initWithAttributes:attrs];
+    }
+
     -(instancetype)initWithAttributes:(PBXDict)attrs {
         self = [super init];
 

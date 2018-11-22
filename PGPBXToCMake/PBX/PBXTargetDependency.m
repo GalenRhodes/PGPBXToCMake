@@ -49,7 +49,7 @@
             NSString *targetID = self.plistBranch[@"target"];
             NSString *oisa     = DICT(self.plistObjects[targetID])[@"isa"];
 
-            if([NSStringFromClass([PBXNativeTarget class]) isEqualToString:oisa]) _target = [PBXNativeTarget pbxNativeTargetWithID:targetID plist:plist];
+            if([NSStringFromClass([PBXNativeTarget class]) isEqualToString:oisa]) _target = [PBXNativeTarget nativeTargetWithID:targetID plist:plist];
             else if([[NSRegularExpression regularExpressionWithPattern:@"PBX\\w+?Target"] matches:oisa]) _target = [PBXTarget targetWithID:targetID plist:plist];
         }
 
