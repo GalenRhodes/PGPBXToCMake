@@ -23,30 +23,37 @@
 #ifndef __PGPBXTOCMAKE_PBXNATIVETARGET__
 #define __PGPBXTOCMAKE_PBXNATIVETARGET__
 
-#import "PBXTarget.h"
+#import "PBXAggregateTarget.h"
 
 @class PBXNativeTargetAttribs;
 @class PBXFileReference;
 @class PBXTargetDependency;
 @class XCConfigurationList;
-@class PBXSourcesBuildPhase;
 @class PBXBuildRule;
+@class PBXBuildPhase;
+
+typedef NS_ENUM(NSUInteger, PBXProductTypeEnum) {
+    PBX_PRODUCT_TYPE_NONE = 0,             //
+    PBX_PRODUCT_TYPE_UNKNOWN,              // ***NOT ONE OF THE FOLLOWING***
+    PBX_PRODUCT_TYPE_APPLICATION,          // com.apple.product-type.application
+    PBX_PRODUCT_TYPE_TOOL,                 // com.apple.product-type.tool
+    PBX_PRODUCT_TYPE_LIBRARY_STATIC,       // com.apple.product-type.library.static
+    PBX_PRODUCT_TYPE_LIBRARY_DYNAMIC,      // com.apple.product-type.library.dynamic
+    PBX_PRODUCT_TYPE_KERNELEXTENSION,      // com.apple.product-type.kernel-extension
+    PBX_PRODUCT_TYPE_KERNELEXTENSION_IOKIT // com.apple.product-type.kernel-extension.iokit
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PBXNativeTarget : PBXTarget
+@interface PBXNativeTarget : PBXAggregateTarget
 
-    @property(readonly) PBXNativeTargetAttribs          *attributes;
-    @property(readonly) NSString                        *productName;
-    @property(readonly) NSString                        *productType;
-    @property(readonly) PBXFileReference                *productReference;
-    @property(readonly) XCConfigurationList             *buildConfigurationList;
-    @property(readonly) NSArray<PBXSourcesBuildPhase *> *buildPhases;
-    @property(readonly) NSArray<PBXBuildRule *>         *buildRules;
+    @property(nonatomic, readonly) PBXNativeTargetAttribs  *attributes;
+    @property(readonly) /*      */ PBXProductTypeEnum      productType;
+    @property(readonly) /*      */ NSString                *productTypeDescription;
+    @property(readonly) /*      */ PBXFileReference        *productReference;
+    @property(readonly) /*      */ NSArray<PBXBuildRule *> *buildRules;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
-
-    +(instancetype)nativeTargetWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
 

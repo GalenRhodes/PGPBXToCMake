@@ -36,10 +36,6 @@
     @synthesize remoteGlobalIDString = _remoteGlobalIDString;
     @synthesize containerPortal = _containerPortal;
 
-    +(instancetype)containerItemProxyWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        return [[self alloc] initWithID:pbxID plist:plist];
-    }
-
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
 
@@ -51,8 +47,8 @@
         return self;
     }
 
-    -(NSString *)proxyType {
-        return self.plistBranch[@"proxyType"];
+    -(NSInteger)proxyType {
+        return INTVAL(@"proxyType");
     }
 
     -(NSString *)remoteInfo {

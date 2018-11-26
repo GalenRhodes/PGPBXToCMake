@@ -36,9 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
     @property(readonly) NSString                        *defaultConfigurationName;
     @property(readonly) BOOL                            defaultConfigurationIsVisible;
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
-
-    +(instancetype)xcConfigListWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
 

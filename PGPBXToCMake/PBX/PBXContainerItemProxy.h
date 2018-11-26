@@ -33,14 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface PBXContainerItemProxy : PBX
 
-    @property(readonly) NSString *proxyType;
-    @property(readonly) NSString *remoteInfo;
-    @property(readonly) PBX      *remoteGlobalIDString;
-    @property(readonly) PBX      *containerPortal;
+    @property(readonly) NSInteger proxyType;
+    @property(readonly) NSString  *remoteInfo;
+    @property(readonly) PBX       *remoteGlobalIDString;
+    @property(readonly) PBX       *containerPortal;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)containerItemProxyWithID:(NSString *)pbxID plist:(PBXDict)plist;
 @end
 
 NS_ASSUME_NONNULL_END

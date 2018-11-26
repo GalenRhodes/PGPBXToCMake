@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXAggregateTarget.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,18 +20,28 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#import "PBXAggregateTarget.h"
+#import "XCConfigurationList.h"
 
-@implementation PBXFrameworksBuildPhase {
+@implementation PBXAggregateTarget {
     }
+
+    @synthesize buildConfigurationList = _buildConfigurationList;
+    @synthesize buildPhases = _buildPhases;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
+            _buildConfigurationList = [PBX objectFromID:self.plistBranch[@"buildConfigurationList"] plist:plist];
+            _buildPhases            = pbxObjectsFromIDs(@"buildPhases", pbxID, plist);
         }
 
         return self;
+    }
+
+    -(NSString *)productName {
+        return self.plistBranch[@"productName"];
     }
 
 @end

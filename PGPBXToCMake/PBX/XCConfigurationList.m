@@ -33,24 +33,14 @@
 //        defaultConfigurationName      = Release;
 //    };
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
-            PBXArray configs = self.plistBranch[@"buildConfigurations"];
-            _buildConfigurations = [NSMutableArray arrayWithCapacity:configs.count ?: 1];
-
-            for(NSString *id in configs) {
-                XCBuildConfiguration *o = [XCBuildConfiguration buildConfigurationWithID:id plist:plist];
-                if(o) ADDOBJ(_buildConfigurations, o);
-            }
+            _buildConfigurations = pbxObjectsFromIDs(@"buildConfigurations", pbxID, plist);
         }
 
         return self;
-    }
-
-    +(instancetype)xcConfigListWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
-        return [[self alloc] initWithID:pbxID plist:plist error:error];
     }
 
     -(NSString *)defaultConfigurationName {

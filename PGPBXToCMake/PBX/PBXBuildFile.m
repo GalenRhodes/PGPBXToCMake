@@ -34,17 +34,13 @@
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
-            _file       = [PBXFileReference fileReferenceWithID:self.plistBranch[@"fileRef"] plist:plist];
+            _file       = [PBX objectFromID:self.plistBranch[@"fileRef"] plist:plist];
             _visibility = PBXFileVisibilityProject;
 
             [self setVisibility:self.attributes];
         }
 
         return self;
-    }
-
-    +(instancetype)buildFileWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        return [[self alloc] initWithID:pbxID plist:plist];
     }
 
     -(void)setVisibility:(PBXArray)attr {

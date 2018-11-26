@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXVariantGroup.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,18 +20,19 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#ifndef __PGPBXTOCMAKE_PBXVARIANTGROUP_H__
+#define __PGPBXTOCMAKE_PBXVARIANTGROUP_H__
 
-@implementation PBXFrameworksBuildPhase {
-    }
+#import "PBXGroup.h"
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        self = [super initWithID:pbxID plist:plist];
+NS_ASSUME_NONNULL_BEGIN
 
-        if(self) {
-        }
+@interface PBXVariantGroup : PBXGroup
 
-        return self;
-    }
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif // __PGPBXTOCMAKE_PBXVARIANTGROUP_H__

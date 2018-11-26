@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXFileElement.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,9 +20,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#import "PBXFileElement.h"
 
-@implementation PBXFrameworksBuildPhase {
+@implementation PBXFileElement {
     }
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
@@ -32,6 +32,31 @@
         }
 
         return self;
+    }
+
+    -(NSString *)sourceTreeDescription {
+        return self.plistBranch[@"sourceTree"];
+    }
+
+    -(NSString *)name {
+        return self.plistBranch[@"name"];
+    }
+
+    -(PBXSourceTreeEnum)sourceTree {
+        PGSWITCH(self.sourceTreeDescription);
+            PGCASE(@"<absolute>");
+                return PBX_SRC_TREE_ABSOLUTE;
+            PGCASE(@"<group>");
+                return PBX_SRC_TREE_GROUP;
+            PGCASE(@"SOURCE_ROOT");
+                return PBX_SRC_TREE_SOURCE_ROOT;
+            PGCASE(@"BUILT_PRODUCTS_DIR");
+                return PBX_SRC_TREE_BUILT_PRODUCTS_DIR;
+            PGCASE(@"SDKROOT");
+                return PBX_SRC_TREE_SDKROOT;
+            PGDEFAULT;
+                return PBX_SRC_TREE_NONE;
+        PGSWITCHEND;
     }
 
 @end

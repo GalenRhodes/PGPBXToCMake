@@ -41,11 +41,22 @@ typedef NS_ENUM(NSUInteger, PBXFileVisibility) {
     @property(readonly) PBXDict           settings;
     @property(readonly) PBXArray          attributes;
 
-    +(instancetype)buildFileWithID:(NSString *)pbxID plist:(PBXDict)plist;
-
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
+
+NS_INLINE NSString *pbxVisibilityDescription(PBXFileVisibility v) {
+    switch(v) {
+        case PBXFileVisibilityProject:
+            return @"Project";
+        case PBXFileVisibilityPrivate:
+            return @"Private";
+        case PBXFileVisibilityPublic:
+            return @"Public";
+        default:
+            return @"Unknown";
+    }
+}
 
 NS_ASSUME_NONNULL_END
 

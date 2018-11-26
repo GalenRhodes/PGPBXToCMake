@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXShellScriptBuildPhase.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,10 +20,21 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#import "PBXShellScriptBuildPhase.h"
 
-@implementation PBXFrameworksBuildPhase {
+@implementation PBXShellScriptBuildPhase {
     }
+
+//    4D22DBAE11674009007AF714 /* ShellScript */ = {
+//        isa                                = PBXShellScriptBuildPhase;
+//        buildActionMask                    = 2147483647;
+//        files                              = ();
+//        inputPaths                         = ();
+//        outputPaths                        = ();
+//        shellPath = /bin / sh;
+//        shellScript = "./fix_references.sh";
+//        runOnlyForDeploymentPostprocessing = 0;
+//    };
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
@@ -32,6 +43,22 @@
         }
 
         return self;
+    }
+
+    -(PBXArray)inputPaths {
+        return self.plistBranch[@"inputPaths"];
+    }
+
+    -(PBXArray)outputPaths {
+        return self.plistBranch[@"outputPaths"];
+    }
+
+    -(NSString *)shellPath {
+        return self.plistBranch[@"shellPath"];
+    }
+
+    -(NSString *)shellScript {
+        return self.plistBranch[@"shellScript"];
     }
 
 @end

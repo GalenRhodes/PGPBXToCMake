@@ -34,8 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
-    +(instancetype)copyFilesBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist;
-
 @end
 
 NS_ASSUME_NONNULL_END

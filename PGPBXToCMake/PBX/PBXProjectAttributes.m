@@ -26,7 +26,7 @@
 
 @interface PBXNativeTarget()
 
-    @property PBXNativeTargetAttribs *attributes;
+    @property(nonatomic) PBXNativeTargetAttribs *attributes;
 
 @end
 
@@ -44,7 +44,7 @@
 
             if(targetAttr.count) {
                 for(NSString *tid in targetAttr.allKeys) {
-                    PBXNativeTarget *nt = [PBXNativeTarget nativeTargetWithID:tid plist:plist];
+                    PBXNativeTarget *nt = [PBX objectFromID:tid plist:plist];
                     if(nt) nt.attributes = [PBXNativeTargetAttribs nativeTargetAttributesWithAttributes:targetAttr[tid]];
                 }
             }

@@ -23,13 +23,13 @@
 #ifndef __PGPBXTOCMAKE_PBXPROJECT__
 #define __PGPBXTOCMAKE_PBXPROJECT__
 
-#import <Rubicon/Rubicon.h>
 #import "PBX.h"
 
 @class XCConfigurationList;
 @class PBXGroup;
 @class PBXNativeTarget;
 @class PBXProjectAttributes;
+@class PBXRoot;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -46,11 +46,15 @@ NS_ASSUME_NONNULL_BEGIN
     @property(readonly) PBXGroup                   *productRefGroup;
     @property(readonly) NSArray<PBXNativeTarget *> *targets;
     @property(readonly) PBXProjectAttributes       *attributes;
+    @property(readonly) PBXRoot                    *root;
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+    +(instancetype)projectWithPlist:(PBXDict)plist;
 
-    +(instancetype)pbxProjectWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error;
+    +(instancetype)projectWithInputStream:(NSInputStream *)inputStream error:(NSError **)error;
 
+    +(instancetype)projectWithFileAtPath:(NSString *)filepath error:(NSError **)error;
+
+    +(instancetype)projectWithURL:(NSURL *)url error:(NSError **)error;
 @end
 
 NS_ASSUME_NONNULL_END

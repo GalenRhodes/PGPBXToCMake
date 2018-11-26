@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXLegacyTarget.m
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,9 +20,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#import "PBXLegacyTarget.h"
 
-@implementation PBXFrameworksBuildPhase {
+@implementation PBXLegacyTarget {
     }
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
@@ -32,6 +32,22 @@
         }
 
         return self;
+    }
+
+    -(BOOL)passBuildSettingsInEnvironment {
+        return BOOLVAL(@"passBuildSettingsInEnvironment");
+    }
+
+    -(NSString *)buildArgumentsString {
+        return self.plistBranch[@"buildArgumentsString"];
+    }
+
+    -(NSString *)buildToolPath {
+        return self.plistBranch[@"buildToolPath"];
+    }
+
+    -(NSString *)buildWorkingDirectory {
+        return self.plistBranch[@"buildWorkingDirectory"];
     }
 
 @end

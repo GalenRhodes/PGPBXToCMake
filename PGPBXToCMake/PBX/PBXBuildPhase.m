@@ -21,7 +21,6 @@
  *//************************************************************************/
 
 #import "PBXBuildPhase.h"
-#import "PBXBuildFile.h"
 
 @implementation PBXBuildPhase {
     }
@@ -65,13 +64,7 @@
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
-            PBXArray pbxFiles = self.plistBranch[@"files"];
-            _files = [NSMutableArray arrayWithCapacity:(pbxFiles.count ?: 1)];
-
-            for(NSString *id in pbxFiles) {
-                PBXBuildFile *o = [PBXBuildFile buildFileWithID:id plist:plist];
-                if(o) ADDOBJ(_files, o);
-            }
+            _files = pbxObjectsFromIDs(@"files", pbxID, plist);
         }
 
         return self;

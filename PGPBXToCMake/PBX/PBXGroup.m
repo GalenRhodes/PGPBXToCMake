@@ -21,7 +21,6 @@
  *//************************************************************************/
 
 #import "PBXGroup.h"
-#import "PBXFileReference.h"
 
 @implementation PBXGroup {
     }
@@ -34,49 +33,15 @@
 //    };
 
     @synthesize children = _children;
-    @synthesize subGroups = _subGroups;
-    @synthesize others = _others;
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
-            PBXArray plistChildren = self.plistBranch[@"children"];
-            _children  = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
-            _subGroups = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
-            _others    = [NSMutableArray arrayWithCapacity:plistChildren.count ?: 1];
-
-            for(NSString *id in plistChildren) {
-                PBX *o = [PBX objectFromID:id plist:plist];
-                if(o) {
-                    PGSWITCH(o.pbxISA);
-                        PGCASE(NSStringFromClass([PBXGroup class]));
-                            ADDOBJ(_subGroups, o);
-                            break;
-                        PGCASE(NSStringFromClass([PBXFileReference class]));
-                            ADDOBJ(_children, o);
-                            break;
-                        PGDEFAULT;
-                            ADDOBJ(_others, o);
-                            break;
-                    PGSWITCHEND;
-                }
-            }
+            _children = pbxObjectsFromIDs(@"children", pbxID, plist);
         }
 
         return self;
-    }
-
-    +(instancetype)pbxGroupWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
-        return [[self alloc] initWithID:pbxID plist:plist error:error];
-    }
-
-    -(NSString *)name {
-        return self.plistBranch[@"name"];
-    }
-
-    -(NSString *)sourceTree {
-        return self.plistBranch[@"sourceTree"];
     }
 
 @end

@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXRoot.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,18 +20,22 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#ifndef __PGPBXTOCMAKE_PBXROOT_H__
+#define __PGPBXTOCMAKE_PBXROOT_H__
 
-@implementation PBXFrameworksBuildPhase {
-    }
+#import "PBX.h"
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        self = [super initWithID:pbxID plist:plist];
+NS_ASSUME_NONNULL_BEGIN
 
-        if(self) {
-        }
+@interface PBXRoot : PBX
 
-        return self;
-    }
+    @property(readonly) NSInteger archiveVersion;
+    @property(readonly) NSInteger objectVersion;
+
+    -(instancetype)initWithPlist:(PBXDict)plist;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif // __PGPBXTOCMAKE_PBXROOT_H__

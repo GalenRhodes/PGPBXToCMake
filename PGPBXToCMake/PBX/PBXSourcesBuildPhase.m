@@ -25,10 +25,6 @@
 @implementation PBXSourcesBuildPhase {
     }
 
-    +(instancetype)sourcesBuildPhaseWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        return [[self alloc] initWithID:pbxID plist:plist];
-    }
-
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super initWithID:pbxID plist:plist];
 

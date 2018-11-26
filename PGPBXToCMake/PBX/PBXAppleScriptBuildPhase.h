@@ -1,9 +1,9 @@
 /************************************************************************//**
  *     PROJECT: PGPBXToCMake
- *    FILENAME: PBXFrameworksBuildPhase.m
+ *    FILENAME: PBXAppleScriptBuildPhase.h
  *         IDE: AppCode
  *      AUTHOR: Galen Rhodes
- *        DATE: 2018-11-19
+ *        DATE: 11/26/18
  *
  * Copyright © 2018 Project Galen. All rights reserved.
  *
@@ -20,18 +20,22 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBXFrameworksBuildPhase.h"
+#ifndef __PGPBXTOCMAKE_PBXAPPLESCRIPTBUILDPHASE_H__
+#define __PGPBXTOCMAKE_PBXAPPLESCRIPTBUILDPHASE_H__
 
-@implementation PBXFrameworksBuildPhase {
-    }
+#import "PBXBuildPhase.h"
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        self = [super initWithID:pbxID plist:plist];
+NS_ASSUME_NONNULL_BEGIN
 
-        if(self) {
-        }
+@interface PBXAppleScriptBuildPhase : PBXBuildPhase
 
-        return self;
-    }
+    @property(readonly) NSString *contextName;
+    @property(readonly) BOOL     isSharedContext;
+
+    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif // __PGPBXTOCMAKE_PBXAPPLESCRIPTBUILDPHASE_H__

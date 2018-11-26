@@ -32,20 +32,10 @@
         self = [super initWithID:pbxID plist:plist];
 
         if(self) {
-            PBXArray plistDeps = (PBXArray)self.plistBranch[@"dependencies"];
-            _dependencies = [NSMutableArray arrayWithCapacity:plistDeps.count ?: 1];
-
-            for(NSString *id in plistDeps) {
-                PBXTargetDependency *dep = [PBXTargetDependency targetDependencyWithID:id plist:plist];
-                if(dep) ADDOBJ(_dependencies, dep);
-            }
+            _dependencies = pbxObjectsFromIDs(@"dependencies", pbxID, plist);
         }
 
         return self;
-    }
-
-    +(instancetype)targetWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        return [[self alloc] initWithID:pbxID plist:plist];
     }
 
     -(NSString *)name {

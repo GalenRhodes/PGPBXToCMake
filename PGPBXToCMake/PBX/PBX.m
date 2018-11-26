@@ -20,13 +20,12 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  *//************************************************************************/
 
-#import "PBX.h"
+#import "PBXProject.h"
 
-@interface PBX()
+NSString *const PBXCacheID = @"⌘CACHE⌘";
+NSString *const PBXRootID  = @"000000000000000000000000";
 
-    -(instancetype)initWithIDForReal:(NSString *)pbxID plist:(PBXDict)plist;
-
-@end
+#define CACHE(c) ((PBXCache)(c))
 
 @implementation PBX {
     }
@@ -35,108 +34,34 @@
     @synthesize plist = _plist;
 
     -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist {
-        if((pbxID.length == 0) || (plist == nil)) return (self = nil);
-
-        /*
-         * See if an object with this ID has already been created.
-         */
-        id cached = [PBX cachedPBXObjectForID:pbxID];
-
-        if(cached) {
-            /*
-             * If so return it instead.
-             */
-            self = nil;
-            return cached;
-        }
-        else {
-            /*
-             * If not create it and cache it.
-             */
-            return (self = [self initWithIDForReal:pbxID plist:plist]);
-        }
-    }
-
-    -(instancetype)initWithIDForReal:(NSString *)pbxID plist:(PBXDict)plist {
         self = [super init];
 
         if(self) {
+            if((pbxID.length == 0) || (plist == nil)) return (self = nil);
+
             _pbxID = [pbxID copy];
             _plist = plist;
-
-            [PBX storePBXObject:self forID:pbxID];
-
-            for(NSString *key in self.plistBranch.allKeys) {
-                NSLog(@"%@ key: \"%@\"", NSStringFromClass([self class]), key);
-            }
+            CACHE(plist[PBXCacheID])[pbxID] = self;
         }
 
         return self;
     }
 
-    /**
-     * We will use a cache for the objects in case the same object ID is referrenced more than once.
-     * This will be a private method accessable only to this base class. The methods that use the cache
-     * returned by this method will lock it when used.
-     *
-     * @return the object cache.
-     */
-    +(NSMutableDictionary<NSString *, id> *)objectCache {
-        static NSMutableDictionary<NSString *, id> *_pbxObjectCache = nil;
-        /*
-         * Avoid going into two synchronized blocks if possible.
-         */
-        if(_pbxObjectCache == nil) {
-            @synchronized([PBX class]) {
-                if(_pbxObjectCache == nil) {
-                    _pbxObjectCache = [NSMutableDictionary new];
+    +(id)objectFromID:(NSString *)pbxID plist:(PBXDict)plist {
+        @synchronized([PBX class]) {
+            id o = CACHE(plist[PBXCacheID])[pbxID];
+
+            if(o == nil) {
+                NSString *className = DICT(DICT(plist[@"objects"])[pbxID])[@"isa"];
+
+                if((className.length > 3) && [className hasPrefix:@"PBX"]) {
+                    Class cls = NSClassFromString(className);
+                    if(cls) o = [((PBX *)([cls alloc])) initWithID:pbxID plist:plist];
                 }
             }
+
+            return o;
         }
-        return _pbxObjectCache;
-    }
-
-    +(instancetype)cachedPBXObjectForID:(NSString *)pbxID {
-        if(pbxID.length) {
-            NSMutableDictionary<NSString *, id> *cache = self.objectCache;
-            @synchronized(cache) { return (cache[pbxID]); }
-        }
-        return nil;
-    }
-
-    +(instancetype)storePBXObject:(id)pbxObject forID:(NSString *)pbxID {
-        if(pbxObject && pbxID.length) {
-            NSMutableDictionary<NSString *, id> *cache = self.objectCache;
-            @synchronized(cache) { cache[pbxID] = pbxObject; }
-            return pbxObject;
-        }
-
-        return nil;
-    }
-
-    +(PBX *)objectFromID:(NSString *)pbxID plist:(PBXDict)plist {
-        /*
-         * First, see if we have something cached.
-         */
-        PBX *obj = [self cachedPBXObjectForID:pbxID];
-
-        if(obj == nil) {
-            @synchronized([PBX class]) {
-                /*
-                 * If not, try to create one from it's name by first finding the class.
-                 */
-                Class cls = NSClassFromString(DICT(DICT(plist[@"objects"])[pbxID])[@"isa"]);
-
-                /*
-                 * If we have a class with that name then create it.
-                 */
-                if(cls) obj = [((PBX *)([cls alloc])) initWithIDForReal:pbxID plist:plist];
-            }
-        }
-        /*
-         * Return the object or nil if the object was an unknown type.
-         */
-        return nil;
     }
 
     -(NSString *)pbxISA {
@@ -148,7 +73,19 @@
     }
 
     -(PBXDict)plistBranch {
-        return self.plistObjects[_pbxID];
+        return (self.plistObjects[_pbxID] ?: _plist);
     }
 
 @end
+
+NSArray *pbxObjectsFromIDs(NSString *key, NSString *pbxID, PBXDict plist) {
+    PBXArray       plistBuildPhases = plist[@"objects"][pbxID][key];
+    NSMutableArray *array           = [NSMutableArray arrayWithCapacity:(plistBuildPhases.count ?: 1)];
+
+    for(NSString *oid in plistBuildPhases) {
+        id o = [PBX objectFromID:oid plist:plist];
+        ADDOBJ(array, o);
+    }
+    return array;
+}
+

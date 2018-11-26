@@ -23,8 +23,8 @@
 #import "PBXProject.h"
 #import "XCConfigurationList.h"
 #import "PBXGroup.h"
-#import "PBXNativeTarget.h"
 #import "PBXProjectAttributes.h"
+#import "PBXRoot.h"
 
 @implementation PBXProject {
     }
@@ -35,30 +35,50 @@
     @synthesize targets = _targets;
     @synthesize attributes = _attributes;
 
-    -(instancetype)initWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
-        self = [super initWithID:pbxID plist:plist];
+    -(instancetype)initWithPlist:(PBXDict)plist {
+        if(plist) {
+            NSString *pbxID = plist[@"rootObject"];
 
-        if(self) {
-            PBXArray pTargets = self.plistBranch[@"targets"];
+            if(pbxID.length) {
+                PBXCache _plist = plist.mutableCopy;
+                _plist[PBXCacheID] = [NSMutableDictionary new];
+                self = [super initWithID:pbxID plist:plist];
 
-            _buildConfigurationList = [XCConfigurationList xcConfigListWithID:self.plistBranch[@"buildConfigurationList"] plist:plist error:error];
-            _mainGroup              = [PBXGroup pbxGroupWithID:self.plistBranch[@"mainGroup"] plist:plist error:error];
-            _productRefGroup        = [PBXGroup pbxGroupWithID:self.plistBranch[@"productRefGroup"] plist:plist error:error];
-            _targets                = [NSMutableArray arrayWithCapacity:pTargets.count ?: 1];
+                if(self) {
+                    _root                   = [[PBXRoot alloc] initWithPlist:plist];
+                    _buildConfigurationList = [PBX objectFromID:self.plistBranch[@"buildConfigurationList"] plist:plist];
+                    _mainGroup              = [PBX objectFromID:self.plistBranch[@"mainGroup"] plist:plist];
+                    _productRefGroup        = [PBX objectFromID:self.plistBranch[@"productRefGroup"] plist:plist];
+                    _targets                = pbxObjectsFromIDs(@"targets", pbxID, plist);
+                    _attributes             = [PBXProjectAttributes attributesWithAttributes:self.plistBranch[@"attributes"] plist:plist];
+                }
 
-            for(NSString *targetID in pTargets) {
-                PBXNativeTarget *o = [PBXNativeTarget nativeTargetWithID:targetID plist:plist];
-                if(o) ADDOBJ(_targets, o);
+                return self;
             }
-
-            _attributes = [PBXProjectAttributes attributesWithAttributes:self.plistBranch[@"attributes"] plist:plist];
         }
-
-        return self;
+        /*
+         * This will cause it to fail...
+         */
+        return (self = [super initWithID:nil plist:nil]);
     }
 
-    +(instancetype)pbxProjectWithID:(NSString *)pbxID plist:(PBXDict)plist error:(NSError **)error {
-        return [[self alloc] initWithID:pbxID plist:plist error:error];
+    +(instancetype)projectWithPlist:(PBXDict)plist {
+        return [[self alloc] initWithPlist:plist];
+    }
+
+    +(instancetype)projectWithInputStream:(NSInputStream *)inputStream error:(NSError **)error {
+        [inputStream open];
+        PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
+        [inputStream close];
+        return (plist ? [self projectWithPlist:plist] : nil);
+    }
+
+    +(instancetype)projectWithFileAtPath:(NSString *)filepath error:(NSError **)error {
+        return [self projectWithInputStream:[NSInputStream inputStreamWithFileAtPath:filepath] error:error];
+    }
+
+    +(instancetype)projectWithURL:(NSURL *)url error:(NSError **)error {
+        return [self projectWithInputStream:[NSInputStream inputStreamWithURL:url] error:error];
     }
 
     -(NSString *)compatibilityVersion {
