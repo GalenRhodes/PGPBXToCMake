@@ -68,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		1117D030F0EA0761DAD9A3D6 /* PBXGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXGroup.h; sourceTree = "<group>"; };
+		1117D06F053336AA19B84079 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D093611D1FEC7745E347 /* PBXRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXRoot.m; sourceTree = "<group>"; };
 		1117D1086E3BE4CB4E67B1F0 /* PBXTargetDependency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXTargetDependency.h; sourceTree = "<group>"; };
 		1117D12952B2E17A9C51A43C /* Sample.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = Sample.plist; path = PGPBXToCMake/SupportingFiles/Sample.plist; sourceTree = SOURCE_ROOT; };
@@ -270,6 +271,7 @@
 				8303C62D21A317B500B38FE2 /* PBX */,
 				8303C62321A3173200B38FE2 /* main.m */,
 				1117DD57E8847B6E0C11A28F /* SupportingFiles */,
+				1117D06F053336AA19B84079 /* CMakeLists.txt */,
 			);
 			path = PGPBXToCMake;
 			sourceTree = "<group>";

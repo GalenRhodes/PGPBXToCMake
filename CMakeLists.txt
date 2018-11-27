@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(RUBICON VERSION "0.1.0.1")
+project(PGPBXToCMake VERSION "0.1.0")
 get_filename_component(PROJECT_DIR_NAME "${CMAKE_SOURCE_DIR}" NAME_WE CACHE)
 
 list(APPEND CMAKE_MODULE_PATH "/usr/share/cmake-3.5/Modules")
@@ -8,7 +8,7 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "$ENV{HOME}" CACHE PATH "..." FORCE)
 endif()
 
-find_program(RUBICON_GNUSTEPCONFIG "gnustep-config")
+find_program(GNUSTEP_CONFIG "gnustep-config")
 find_program(UNIX_FIND "find")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fblocks -std=gnu99")
@@ -16,11 +16,11 @@ set(CMAKE_C_FLAGS_RELEASE "-w -Ofast -g0")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fblocks -std=gnu99")
 set(CMAKE_CXX_FLAGS_RELEASE "-w -Ofast -g0")
 
-if(RUBICON_GNUSTEPCONFIG)
-    execute_process(COMMAND "${RUBICON_GNUSTEPCONFIG}" "--variable=CC"  OUTPUT_VARIABLE objc_c_compiler     OUTPUT_STRIP_TRAILING_WHITESPACE)
-    execute_process(COMMAND "${RUBICON_GNUSTEPCONFIG}" "--variable=CXX" OUTPUT_VARIABLE objc_cxx_compiler   OUTPUT_STRIP_TRAILING_WHITESPACE)
-    execute_process(COMMAND "${RUBICON_GNUSTEPCONFIG}" "--objc-flags"   OUTPUT_VARIABLE objc_def_cc_flags   OUTPUT_STRIP_TRAILING_WHITESPACE)
-    execute_process(COMMAND "${RUBICON_GNUSTEPCONFIG}" "--gui-libs"     OUTPUT_VARIABLE objc_def_link_flags OUTPUT_STRIP_TRAILING_WHITESPACE)
+if(GNUSTEP_CONFIG)
+    execute_process(COMMAND "${GNUSTEP_CONFIG}" "--variable=CC"  OUTPUT_VARIABLE objc_c_compiler     OUTPUT_STRIP_TRAILING_WHITESPACE)
+    execute_process(COMMAND "${GNUSTEP_CONFIG}" "--variable=CXX" OUTPUT_VARIABLE objc_cxx_compiler   OUTPUT_STRIP_TRAILING_WHITESPACE)
+    execute_process(COMMAND "${GNUSTEP_CONFIG}" "--objc-flags"   OUTPUT_VARIABLE objc_def_cc_flags   OUTPUT_STRIP_TRAILING_WHITESPACE)
+    execute_process(COMMAND "${GNUSTEP_CONFIG}" "--gui-libs"     OUTPUT_VARIABLE objc_def_link_flags OUTPUT_STRIP_TRAILING_WHITESPACE)
 
     set(other_flags           "-fobjc-arc -fobjc-arc-exceptions -fobjc-nonfragile-abi")
 #   set(CMAKE_C_COMPILER      "${objc_c_compiler}"                  CACHE FILEPATH "" FORCE)
@@ -40,29 +40,23 @@ endif()
 # parent's include directory for other directories to inherit.
 #
 add_subdirectory("${PROJECT_DIR_NAME}")
-get_directory_property(incdir DIRECTORY "${PROJECT_DIR_NAME}" DEFINITION "LIBRUBICON_SYSTEMINCDIR")
+get_directory_property(incdir DIRECTORY "${PROJECT_DIR_NAME}" DEFINITION "LIBPGPBXToCMake_SYSTEMINCDIR")
 include_directories(BEFORE SYSTEM "${incdir}")
-#
-####################################################################################################################
-#
-add_subdirectory("TypeSizes")
-#get_directory_property(incdir2 DIRECTORY "TypeSizes" INCLUDE_DIRECTORIES)
-#include_directories(${incdir2})
 #
 ####################################################################################################################
 
 if (UNIX)
     set(CPACK_STRIP_FILES            ON)
-    set(CPACK_DEBIAN_PACKAGE_VERSION "${RUBICON_VERSION}")
-    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>=2.7), libdispatch (>=0.1.3), libobjc (>=1.7.0)")
+    set(CPACK_DEBIAN_PACKAGE_VERSION "${PGPBXToCMake_VERSION}")
+    set(CPACK_DEBIAN_PACKAGE_DEPENDS "libc6 (>=2.7)")
 endif ()
 
 set(CPACK_PACKAGE_CONTACT             "Galen Rhodes <galenrhodes@me.com>")
-set(CPACK_PACKAGE_NAME                "lib${CMAKE_PROJECT_NAME}-${RUBICON_VERSION}")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Objective-C Library To Make Life Simple")
-set(CPACK_RESOURCE_FILE_LICENSE       "${RUBICON_SOURCE_DIR}/LICENSE")
-set(CPACK_PACKAGE_DESCRIPTION_FILE    "${RUBICON_SOURCE_DIR}/README.md")
-set(CPACK_PACKAGE_VERSION_MAJOR       "${RUBICON_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR       "${RUBICON_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH       "${RUBICON_VERSION_PATCH}")
+set(CPACK_PACKAGE_NAME                "${CMAKE_PROJECT_NAME}-${PGPBXToCMake_VERSION}")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Build XCode Projects on Linux.")
+set(CPACK_RESOURCE_FILE_LICENSE       "${PGPBXToCMake_SOURCE_DIR}/LICENSE")
+set(CPACK_PACKAGE_DESCRIPTION_FILE    "${PGPBXToCMake_SOURCE_DIR}/README.md")
+set(CPACK_PACKAGE_VERSION_MAJOR       "${PGPBXToCMake_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR       "${PGPBXToCMake_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH       "${PGPBXToCMake_VERSION_PATCH}")
 include (CPack)
