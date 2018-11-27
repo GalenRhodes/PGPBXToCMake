@@ -38,6 +38,7 @@
     -(instancetype)initWithPlist:(PBXDict)plist {
         if(plist) {
             NSString *pbxID = plist[@"rootObject"];
+            NSLog(@"Root Object ID: %@", pbxID);
 
             if(pbxID.length) {
                 PBXCache _plist = plist.mutableCopy;
