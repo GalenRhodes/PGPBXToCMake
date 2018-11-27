@@ -69,7 +69,7 @@ int main(int argc, const char *argv[]) {
     @autoreleasepool {
         NSError    *error      = nil;
 #ifdef __GNUSTEP_RUNTIME__
-        NSString   *inFilename = @"~/Projects/prj/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
+        NSString   *inFilename = @"~/Projects/prj/project.pbxproj".stringByExpandingTildeInPath;
 #else
         NSString   *inFilename = @"~/Projects/2017/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
 #endif
