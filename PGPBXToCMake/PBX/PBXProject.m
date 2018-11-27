@@ -70,7 +70,26 @@
     +(instancetype)projectWithInputStream:(NSInputStream *)inputStream error:(NSError **)error {
         [inputStream open];
         NSLog(@"Reading plist...");
+#ifdef __GNUSTEP_RUNTIME__
+        // Are you kidding me guys?  Seriously?
+        // How about an error message that says propertyListWithStream: wasn't implemented yet?
+        NSUInteger    bufferLength = 4192;
+        NSMutableData *mdata       = [NSMutableData dataWithCapacity:bufferLength];
+        uint8_t       *buffer      = PGMalloc(bufferLength);
+        NSInteger     res          = [inputStream read:buffer maxLength:bufferLength];
+
+        while(res > 0) {
+            [mdata appendBytes:buffer length:(NSUInteger)res];
+            res = [inputStream read:buffer maxLength:bufferLength];
+        }
+        if(res < 0) {
+            PGSetReference(error, inputStream.streamError);
+            return nil;
+        }
+        PBXDict plist = [NSPropertyListSerialization propertyListWithData:mdata options:NSPropertyListImmutable format:nil error:error];
+#else
         PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
+#endif
         NSLog(@"Reading plist result: %@", (plist ? @"Success" : ((error && (*error)) ? (*error).localizedDescription : @"Unknown Error")));
         [inputStream close];
         return (plist ? [self projectWithPlist:plist] : nil);
