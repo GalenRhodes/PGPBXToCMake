@@ -73,6 +73,8 @@ int main(int argc, const char *argv[]) {
 #else
         NSString   *inFilename = @"~/Projects/2017/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
 #endif
+        NSLog(@"Reading project file from \"%@\"...", inFilename);
+
         PBXProject *pbxProject = [PBXProject projectWithFileAtPath:inFilename error:&error];
 
         for(PBXNativeTarget *nativeTarget in pbxProject.targets) {

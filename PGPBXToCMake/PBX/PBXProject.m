@@ -68,7 +68,9 @@
 
     +(instancetype)projectWithInputStream:(NSInputStream *)inputStream error:(NSError **)error {
         [inputStream open];
+        NSLog(@"Reading plist...");
         PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
+        NSLog(@"Reading plist result: %@", ((error && (*error)) ? (*error).localizedDescription : @"Success"));
         [inputStream close];
         return (plist ? [self projectWithPlist:plist] : nil);
     }
