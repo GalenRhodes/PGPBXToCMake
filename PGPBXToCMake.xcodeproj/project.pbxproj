@@ -90,6 +90,7 @@
 		1117D4CC217B8C7AC4EFEE3A /* PBXVariantGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXVariantGroup.h; sourceTree = "<group>"; };
 		1117D4FCCC8DB7270A0523EF /* PBX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBX.h; sourceTree = "<group>"; };
 		1117D50CB982996B1C63212C /* PBXFileElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileElement.m; sourceTree = "<group>"; };
+		1117D566CB9C20ABE20B3B77 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1117D5B7450590E2A3971836 /* PBXVariantGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXVariantGroup.m; sourceTree = "<group>"; };
 		1117D5D3A6A5A882976A5580 /* PBXProjectAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProjectAttributes.h; sourceTree = "<group>"; };
 		1117D5FF130F981BA407D5FC /* PBXProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXProject.h; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 		1117D865CA3CB22A3C07FAAD /* PBXBuildRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBXBuildRule.h; sourceTree = "<group>"; };
 		1117D8AB76CFE5E269B69711 /* XCConfigurationList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCConfigurationList.h; sourceTree = "<group>"; };
 		1117D8DC45FA329D238CADB4 /* PBXBuildRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXBuildRule.m; sourceTree = "<group>"; };
+		1117D92887591C07E3533F0E /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		1117D9706EABE0383337DBAD /* PBXCopyFilesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXCopyFilesBuildPhase.m; sourceTree = "<group>"; };
 		1117D979FD9FB4CE9BF430A3 /* PBX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBX.m; sourceTree = "<group>"; };
 		1117D9B0B33D1BF9AE80B692 /* PBXNativeTargetAttribs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXNativeTargetAttribs.m; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		1117DEB1E3A6B32EF98BE457 /* PBXShellScriptBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXShellScriptBuildPhase.m; sourceTree = "<group>"; };
 		1117DF7B9A63E8EDEF412EB1 /* PBXFileReference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXFileReference.m; sourceTree = "<group>"; };
 		1117DF977869A19399F0B570 /* PBXResourcesBuildPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBXResourcesBuildPhase.m; sourceTree = "<group>"; };
+		1117DF9A1FE61D80D6DB77AB /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		8303C62021A3173200B38FE2 /* PGPBXToCMake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PGPBXToCMake; sourceTree = BUILT_PRODUCTS_DIR; };
 		8303C62321A3173200B38FE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8303C62B21A3175E00B38FE2 /* Rubicon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rubicon.framework; path = ../../../Library/Frameworks/Rubicon.framework; sourceTree = "<group>"; };
@@ -247,6 +250,9 @@
 				8303C62221A3173200B38FE2 /* PGPBXToCMake */,
 				8303C62121A3173200B38FE2 /* Products */,
 				8303C62A21A3175E00B38FE2 /* Frameworks */,
+				1117D92887591C07E3533F0E /* CMakeLists.txt */,
+				1117DF9A1FE61D80D6DB77AB /* LICENSE */,
+				1117D566CB9C20ABE20B3B77 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
