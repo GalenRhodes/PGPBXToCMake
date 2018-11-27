@@ -6,7 +6,7 @@
 //  Copyright © 2018 Project Galen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Rubicon/Rubicon.h>
 #import "PBXProject.h"
 #import "PBXTarget.h"
 #import "PBXNativeTarget.h"
@@ -68,7 +68,11 @@ void logGroup(PBXGroup *aGroup, NSUInteger tabs) {
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
         NSError    *error      = nil;
+#ifdef __GNUSTEP_RUNTIME__
+        NSString   *inFilename = @"~/Projects/prj/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
+#else
         NSString   *inFilename = @"~/Projects/2017/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
+#endif
         PBXProject *pbxProject = [PBXProject projectWithFileAtPath:inFilename error:&error];
 
         for(PBXNativeTarget *nativeTarget in pbxProject.targets) {
