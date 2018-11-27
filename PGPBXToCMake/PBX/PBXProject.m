@@ -71,7 +71,7 @@
         [inputStream open];
         NSLog(@"Reading plist...");
         PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
-        NSLog(@"Reading plist result: %@", ((error && (*error)) ? (*error).localizedDescription : @"Success"));
+        NSLog(@"Reading plist result: %@", (plist ? @"Success" : ((error && (*error)) ? (*error).localizedDescription : @"Unknown Error")));
         [inputStream close];
         return (plist ? [self projectWithPlist:plist] : nil);
     }
