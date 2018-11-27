@@ -69,7 +69,6 @@
 
     +(instancetype)projectWithInputStream:(NSInputStream *)inputStream error:(NSError **)error {
         [inputStream open];
-        NSLog(@"Reading plist...");
 #ifdef __GNUSTEP_RUNTIME__
         // Are you kidding me guys?  Seriously?
         // How about an error message that says propertyListWithStream: wasn't implemented yet?
@@ -90,7 +89,6 @@
 #else
         PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
 #endif
-        NSLog(@"Reading plist result: %@", (plist ? @"Success" : ((error && (*error)) ? (*error).localizedDescription : @"Unknown Error")));
         [inputStream close];
         return (plist ? [self projectWithPlist:plist] : nil);
     }
