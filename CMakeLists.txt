@@ -35,15 +35,7 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
 endif()
 
-####################################################################################################################
-# After we add the subdirectory for a library we can pull down it's public include directory and add it to the
-# parent's include directory for other directories to inherit.
-#
 add_subdirectory("${PROJECT_DIR_NAME}")
-get_directory_property(incdir DIRECTORY "${PROJECT_DIR_NAME}" DEFINITION "LIBPGPBXToCMake_SYSTEMINCDIR")
-include_directories(BEFORE SYSTEM "${incdir}")
-#
-####################################################################################################################
 
 if (UNIX)
     set(CPACK_STRIP_FILES            ON)
