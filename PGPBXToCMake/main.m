@@ -67,12 +67,21 @@ void logGroup(PBXGroup *aGroup, NSUInteger tabs) {
 
 int main(int argc, const char *argv[]) {
     @autoreleasepool {
+        for(int i = 0; i < argc; ++i) {
+            printf("%2d> \"%s\"\n", i, argv[i]);
+        }
+
         NSError    *error      = nil;
 #ifdef __GNUSTEP_RUNTIME__
         NSString   *inFilename = @"~/Projects/prj/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
 #else
         NSString   *inFilename = @"~/Projects/2017/Rubicon/Rubicon.xcodeproj/project.pbxproj".stringByExpandingTildeInPath;
 #endif
+        if(argc > 1) {
+            inFilename = [NSString stringWithUTF8String:argv[1]];
+        }
+
+        NSLog(@"Reading from file: %@", inFilename);
         PBXProject *pbxProject = [PBXProject projectWithFileAtPath:inFilename error:&error];
 
         for(PBXNativeTarget *nativeTarget in pbxProject.targets) {
