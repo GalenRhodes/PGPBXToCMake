@@ -60,8 +60,8 @@ void logGroup(PBXGroup *aGroup, NSUInteger tabs) {
 
     NSLog(@"%@(%@) %@", tabstr, aGroup.sourceTreeDescription, aGroup.name);
     for(PBXFileElement *aFile in aGroup.children) {
-        if(aFile.class == PBXFileReference.class) logFile((PBXFileReference *)aFile, tabs + 1);
-        else if(aFile.class == PBXGroup.class) logGroup((PBXGroup *)aFile, tabs + 1);
+        if([aFile isKindOfClass:PBXFileReference.class]) logFile((PBXFileReference *)aFile, tabs + 1);
+        else if([aFile isKindOfClass:PBXGroup.class]) logGroup((PBXGroup *)aFile, tabs + 1);
     }
 }
 
