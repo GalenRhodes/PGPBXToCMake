@@ -75,8 +75,8 @@
         // How about an error message that says propertyListWithStream:options:format:error: wasn't implemented yet?
         // Don't just provide an empty method that returns nil and has the comment "fix me".
         //
-        NSData  mdata = [NSData dataWithContentsOfInputStream:inputStream closeOnFinish:YES error:error];
-        PBXDict plist = [NSPropertyListSerialization propertyListWithData:mdata options:NSPropertyListImmutable format:nil error:error];
+        NSData  *mdata = [NSData dataWithContentsOfInputStream:inputStream closeOnFinish:YES error:error];
+        PBXDict plist  = [NSPropertyListSerialization propertyListWithData:mdata options:NSPropertyListImmutable format:nil error:error];
 #else
         PBXDict plist = [NSPropertyListSerialization propertyListWithStream:inputStream options:NSPropertyListImmutable format:nil error:error];
 #endif
